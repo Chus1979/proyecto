@@ -8,13 +8,15 @@
 	var nombre,dni, email, nick, clave
 
 	async function borrar(){txt=''};
+	
 	async function getNuevoCli(txt){
 		var getNuevoCliURL = `http://localhost:3000/nuevoCli/?texto=${txt}`;
 		var resp = await fetch(getNuevoCliURL);
 		listadoClientes = await resp.json();
 		enviar();
 		borrar();
-    }
+	}
+	
     async function enviar() {
 		var url = 'http://localhost:3000/api/altaUsuario/'
 		var data = new FormData();
@@ -41,36 +43,6 @@
 		}
 		borrar();
     }
-	async function eliminarUsuario(id) {
-		var getEliminarUsuarioURL = `http://localhost:3000/eliminarUsuario/?id=${id}`;
-		var resp = await fetch(getEliminarUsuarioURL);
-		listadoClientes = await resp.json();
-		getModificarDoc();
-   	}
-	async function getListadoCli(){
-		console.log(listadoClientes)
-		var getListadoCliURL = 'http://localhost:3000/listadoCli/';
-		var resp = await fetch(getListadoCliURL);
-		listadoClientes = await resp.json();
-		eliminarUsuario(id);
-
-	}
-	async function getModificarDoc(){
-		var getModificarDocURL = 'http://localhost:3000/modificarDoc/';
-		var resp = await fetch(getModificarDocURL);
-		listadoClientes = await resp.json();
-		borrar();
-	}
-	/*async function updateSignups () {
-        var url = 'http://localhost:3000/api/listFiles/';
-        var resp = await fetch(url);
-		uploads = await resp.json();
-		eliminarUsuario(id);
-	};*/
-	getListadoCli();
-	/*
-	updateSignups();
-	*/
 </script>
 
 <main>
