@@ -1,16 +1,20 @@
 <script>
 	import Appclientes from './Appclientes.svelte';
     import AppaltaUsuario from './AppaltaUsuario.svelte';
+    /*
     var pag = 'Appclientes';
     function setPage(pageName) {
         pag = pageName;
     }
+    */
 </script>
 
 <main> 
-    <!--meta http-equiv="content-type" content="text/html; charset=utf-8" /--><!--daba un fallo donde decia q lo escrito se consideraria basura-->
 	<h1>Bienvenidos a:</h1>
         <h2>"De la Tierra a tu Casa"</h2>
+        <AppaltaUsuario/>
+        <Appclientes/>
+    <!--
         <nav>
 			<h3>Si eres nuevo recuerda inscribirte</h3>
 				<button on:click={()=>{setPage('AppaltaUsuario')}}>
@@ -28,6 +32,7 @@
             <AppaltaUsuario/>
         {/if}				
         </div>
+    -->
             
 </main>
 
