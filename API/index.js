@@ -74,7 +74,7 @@ app.post('/nuevoCli/', async (req,res)=>{
        // HistorialPedidos:req.query.HistorialPedidos,
         //Carro:req.query.Carro,	
 		//avatar:req.body.avatar,
-		file:req.body.file,
+		//file:req.body.file,
 	};
 	//var result = await collFiles.insertOne(file);
 	var mongoRes = await collClien.insertOne(documento);

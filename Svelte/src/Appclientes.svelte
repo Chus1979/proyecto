@@ -16,7 +16,7 @@
         var getListadoCliURL = 'http://localhost:3000/listadoCli/';
         var resp = await fetch(getListadoCliURL);
         listadoClientes = await resp.json();
-        eliminarUsuario(id);
+        //eliminarUsuario(id);
     }
 
     getListadoCli();

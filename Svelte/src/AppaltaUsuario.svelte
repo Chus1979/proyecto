@@ -18,7 +18,7 @@
 	}
 	
     async function enviar() {
-		var url = 'http://localhost:3000/api/altaUsuario/'
+		var url = 'http://localhost:3000/nuevoCli/'
 		var data = new FormData();
 		//data.append('files',files[0]);
 		data.append('nombre',nombre);

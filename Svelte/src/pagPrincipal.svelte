@@ -10,10 +10,12 @@
 </script>
 
 <main> 
-    <!--meta http-equiv="content-type" content="text/html; charset=utf-8" /--><!--daba un fallo donde decia q lo escrito se consideraria basura-->
 	<h1>Bienvenidos a:</h1>
-    /*   
-    <nav>
+        <h2>"De la Tierra a tu Casa"</h2>
+        <AppaltaUsuario/>
+        <Appclientes/>
+    <!--
+        <nav>
 			<h3>Si eres nuevo recuerda inscribirte</h3>
 				<button on:click={()=>{setPage('AppaltaUsuario')}}>
 					Alta Usuario
@@ -30,6 +32,7 @@
             <AppaltaUsuario/>
         {/if}				
         </div>
+    -->
             
 </main>
 
@@ -48,7 +51,13 @@ h1{
     text-shadow: 4px 4px 4px rgb(7, 87, 114);
     text-underline-position: auto;
 }
-
+h2{
+	text-align: center;
+    color:lightseagreen;
+    font-family: 'satisfy';
+    font-size: 60px;
+    text-underline-position: auto;
+}
 h3{
 	text-align: center;
     color:lightseagreen;
