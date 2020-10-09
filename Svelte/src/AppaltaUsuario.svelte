@@ -2,27 +2,22 @@
 //import { text } from "svelte/internal";
 
 	//var id = ObjectId;
-    var txt = '';
+    //var txt = '';
 	var listadoClientes = [];
 	//var files;	
-	var nombre,dni, email, nick, clave
+	var nombre,dni, email, nick, clave,nifCif
 
-	async function borrar(){txt=''};
-	
-	async function getNuevoCli(txt){
-		var getNuevoCliURL = `http://localhost:3000/nuevoCli/?texto=${txt}`;
-		var resp = await fetch(getNuevoCliURL);
-		listadoClientes = await resp.json();
-		enviar();
-		borrar();
-	}
+	async function borrar(){	//para q borre todos los datos despues de darle a enviar
+		nombre=dni=email=nick=clave=nifCif='';
+	};
 	
     async function enviar() {
-		var url = 'http://localhost:3000/nuevoCli/'
-		var data = new FormData();
+		var url = 'http://localhost:3000/nuevoUsuario/'
+		var data = new FormData();//los data.append deben ser= a los inputs
 		//data.append('files',files[0]);
 		data.append('nombre',nombre);
 		data.append('dni',dni);
+		data.append('nifCif', nifCif);
 		data.append('email',email);
 		data.append('nick',nick);
 		data.append('clave',clave);
@@ -47,10 +42,11 @@
 
 <main>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<div id="nuevoCliente">
-		<h2>Nuevo Cliente.-</h2>
+	<div id="nuevoUsuario">
+		<h2>Nuevo Usuario.-</h2>
 		<p>Nombre:<input id="nombre" type="text" bind:value={nombre}></p>
 		<p>D.N.I.:<input id="dni" type="text" bind:value={dni}></p>
+		<p>N.I.F/C.I.F.:<input id="nifCif" type="text" bind:value={nifCif}></p>
 		<p>Email:<input id="email" type="email" bind:value={email}></p>
 		<p>Nick:<input id="nick" type="text" bind:value={nick}></p>
 		<p>Contraseña:<input id="clave" type="password" bind:value={clave}></p>
@@ -87,7 +83,7 @@
 		</select>
 		-->
     </div>
-    <button on:click={()=>{enviar()}}>Enviar</button>
+    <button on:click={enviar}>Enviar</button>	<!--con el nombre de la función es suficiente-->
 	<!--button on:click={borrar}>Borrar</button-->
 	<!--
 	<div>

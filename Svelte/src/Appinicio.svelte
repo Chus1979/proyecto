@@ -1,5 +1,6 @@
 <script>
-	import Appclientes from './Appclientes.svelte';
+	import AppUsuarios from './AppUsuarios.svelte';
+	//import AppUsuarios from './Appclientes.svelte';
     import AppaltaUsuario from './AppaltaUsuario.svelte';
     /*
     var pag = 'Appclientes';
@@ -10,10 +11,8 @@
 </script>
 
 <main> 
-	<h1>Bienvenidos a:</h1>
-        <h2>"De la Tierra a tu Casa"</h2>
         <AppaltaUsuario/>
-        <Appclientes/>
+        <AppUsuarios/>
     <!--
         <nav>
 			<h3>Si eres nuevo recuerda inscribirte</h3>
@@ -29,7 +28,8 @@
         {#if pag === 'Appclientes'}
             <Appclientes/>
         {:else if pag === 'AppaltaUsuario'}
-            <AppaltaUsuario/>
+
+        <AppaltaUsuario/>
         {/if}				
         </div>
     -->

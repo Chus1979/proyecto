@@ -1,39 +1,22 @@
 <script>
-	import Appclientes from './Appclientes.svelte';
-    import AppaltaUsuario from './AppaltaUsuario.svelte';
-    /*
-    var pag = 'Appclientes';
-    function setPage(pageName) {
-        pag = pageName;
-    }
-    */
+	import Appinicio from './Appinicio.svelte';
+    
+    function handleClick () {
+    };
 </script>
 
-<main> 
-	<h1>Bienvenidos a:</h1>
-        <h2>"De la Tierra a tu Casa"</h2>
-        <AppaltaUsuario/>
-        <Appclientes/>
-    <!--
-        <nav>
-			<h3>Si eres nuevo recuerda inscribirte</h3>
-				<button on:click={()=>{setPage('AppaltaUsuario')}}>
-					Alta Usuario
-				</button>
-			<h3>Si ya nos conoces, pasa es tu casa</h3>
-				<button on:click={()=>{setPage('Appclientes')}}>
-					Clientes
-				</button>
-        </nav>
-        <div>
-        {#if pag === 'Appclientes'}
-            <Appclientes/>
-        {:else if pag === 'AppaltaUsuario'}
-            <AppaltaUsuario/>
-        {/if}				
-        </div>
-    -->
-            
+<main >
+    <!-- svelte-ignore a11y-missing-attribute -->
+    <img src = '/home/chus/Cliente_proveedor/API/img/Fondo_pantalla.jpg'>
+    <h1>Food on wheels</h1>
+        <h2>"De la huerta a tu Casa"</h2>
+            <h3>Bienvenidos:</h3>
+            <p>Promovemos el contacto directo entre clientes y proveedores</p>
+            <p>Con los tiempos que corren hoy en día...¿que mejor manera de comer comida sana directamente del huerto?</p>
+            <p>Entren y disfruten de una buena selección de productos frescos, recien cosechados de las huertas</p>
+            <button on:click={handleClick}>Adelante</button>
+            <Appinicio/>
+
 </main>
 
 <style>
@@ -43,13 +26,15 @@
     font-family: 'satisfy';
     src: url ('/home/chus/Cliente_proveedor/Satisfy');
 }
+img{
+    background-size: 0px,0px,0px,0px;
+}
 h1{
     text-align: center;
     color:lightseagreen;
     font-family: 'satisfy';
-    font-size: xx-large;
-    text-shadow: 4px 4px 4px rgb(7, 87, 114);
-    text-underline-position: auto;
+    font-size: 80px;
+    text-shadow: 6px 6px 6px rgb(7, 87, 114);
 }
 h2{
 	text-align: center;
@@ -63,7 +48,17 @@ h3{
     color:lightseagreen;
     font-family: 'satisfy';
     font-size: xx-large;
-    text-underline-position: auto;
+    text-decoration: 10px;
+    text-decoration-color: aqua;
+    text-decoration-style: solid;
+    text-decoration-line:underline;
+    
+}
+p{
+    text-align: center;
+    color:rgb(2, 82, 78);
+    font-family: 'satisfy';
+    font-size: large;
 }
 button {
     text-align: center;
@@ -77,10 +72,10 @@ button {
     padding: 10px;
     font-size: 20px;
     color: rgb(70, 110, 90);
-    margin-left: auto;
+    margin-left: 600px;
 }
 button:hover {
-padding: 30px;
-background: blue;
+    padding: 10px;
+    background: rgb(96, 96, 167);
 }
 </style>

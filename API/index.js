@@ -12,7 +12,7 @@ const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
 const crypto = require ('crypto');
 //
-const mongoURL = 'mongodb://localhost:27017/cliente_proveedor/';
+const mongoURL = 'mongodb://localhost:27017/cliente_proveedor';
 
 const multer = require('multer');
 const {ClientRequest} = require('http');
@@ -22,16 +22,17 @@ const mimeParser = multer({
             fileSize: 1000,
 		},
 });
+var collection;
 
-var collClien;
-var collProv;
-var collProduc;
+//var collClien;
+//var collProv;
+//var collProduc;
 
 async function conectadb () {
-	var client = await MongoClient.connect(mongoURL);
-	collClien = await client.db().collection('clientes');
-	collProv = await client.db().collection('proveedores');
-	collProduc = await client.db().collection('productos');
+	var usuario = await MongoClient.connect(mongoURL);
+	collection = await client.db().collection('usuario');
+	//collProv = await client.db().collection('proveedores');
+	//collProduc = await client.db().collection('productos');
 }
 
 conectadb();
@@ -48,9 +49,9 @@ port = 3000;
   * ############# Endpoints clientes ###
   * ####################################
   */
-app.post('/nuevoCli/', async (req,res)=>{
-	var nuevoClientes = req.body.clientes; 
-	var pwd = req.body.pwd;
+app.post('/nuevoUsuario/', mimeParser.none(), async (req,res)=>{
+	var nuevoUsuario = req.body.usuario; 
+	var pwd = req.body.clave;   //para q coincida con el input y el data.append
 	const hash = crypto.createHash('sha256');
 	hash.update(pwd);
 	var hashString = hash.digest('base64');
@@ -64,7 +65,8 @@ app.post('/nuevoCli/', async (req,res)=>{
         nombre:req.body.nombre,
         //apellido1:req.query.apellido1,
         //apellido2:req.query.apellido2,
-        dNI:req.body.dNI,
+        dni:req.body.dni,
+        nifCif:req.body.nifCif,
         //direccion:req.query.direccion,
         email:req.body.email,
         //telefono:req.query.telefono,
@@ -77,26 +79,26 @@ app.post('/nuevoCli/', async (req,res)=>{
 		//file:req.body.file,
 	};
 	//var result = await collFiles.insertOne(file);
-	var mongoRes = await collClien.insertOne(documento);
-	var clientes = await collClien.find().toArray();
-	var json = JSON.stringify(clientes);
+	var mongoRes = await collection.insertOne(documento);
+	var usuario = await collection.find().toArray();
+	var json = JSON.stringify(usuario);
 	//console.log(file);
 	//res.send(result.insertedId);
 	console.log(mongoRes);
 	res.send(json);
 })
 
-app.get('/listadoCli/', async (req,res)=>{
+app.get('/listadoUsuarios/', async (req,res)=>{
 	/**
 	* Endpoint: http://localhost:3000/listadoCli/
 	*/
-	var clientes = await collClien.find().toArray();
-	var json = JSON.stringify(clientes)
+	var usuario = await collection.find().toArray();
+	var json = JSON.stringify(usuario)
 		res.send(json);		
 })
 
 /*
-app.get('/modificarFichaCli/', async (req,res)=>{
+app.get('/modificarFichaCli/', mimeParser.none(), async (req,res)=>{
 })
 */
 
@@ -128,7 +130,7 @@ app.post('/nuevoProv/',async (req,res)=>{
     var hashString = hash.digest('base64');
     var datosProv = {
         proveedor:req.body.proveedor,
-        nifCif:req.body.nifCif,
+        
         email:req.body.email,
         clave:hashString,        
     };
