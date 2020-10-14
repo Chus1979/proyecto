@@ -30,7 +30,7 @@ var collection;
 
 async function conectadb () {
 	var usuario = await MongoClient.connect(mongoURL);
-	collection = await client.db().collection('usuario');
+	collection = await usuario.db().collection('usuario');
 	//collProv = await client.db().collection('proveedores');
 	//collProduc = await client.db().collection('productos');
 }
@@ -86,21 +86,31 @@ app.post('/nuevoUsuario/', mimeParser.none(), async (req,res)=>{
 	//res.send(result.insertedId);
 	console.log(mongoRes);
 	res.send(json);
-})
+});
+app.get('/login/', async (req, res){
+    var nick = req.query.nick;
+    var pwd = req.query.clave;
+    const hash = crypto.createHash('sha256');
+	hash.update(pwd);
+    var hashString = hash.digest('base64');
+    var filtro {
+        nick: nick,
+        clave: hashString,
+    };
+    var usuario = await collection.findOne(filtro);
+    if(usuario){
+        res.send(JSON.stringify('usuario_id'));
+    } else {
+        res.send(JSON.stringify('false'));
+    };
+});
 
-app.get('/listadoUsuarios/', async (req,res)=>{
-	/**
-	* Endpoint: http://localhost:3000/listadoCli/
-	*/
+
+/*app.get('/listadoUsuarios/', async (req,res)=>{
 	var usuario = await collection.find().toArray();
 	var json = JSON.stringify(usuario)
 		res.send(json);		
-})
-
-/*
-app.get('/modificarFichaCli/', mimeParser.none(), async (req,res)=>{
-})
-*/
+})*/
 
 /*
 app.get('/eliminarCli/', async(req, res)=>{
@@ -115,7 +125,6 @@ app.get('/eliminarCli/', async(req, res)=>{
 })
 */
 
-
  /**
   * ############# Endpoints proveedores 
   * ####################################
@@ -129,8 +138,7 @@ app.post('/nuevoProv/',async (req,res)=>{
 	hash.update(pwd);
     var hashString = hash.digest('base64');
     var datosProv = {
-        proveedor:req.body.proveedor,
-        
+        proveedor:req.body.proveedor,      
         email:req.body.email,
         clave:hashString,        
     };
@@ -177,12 +185,6 @@ app.get('/modificarProduc/',async (req, res)=>{
         res.send(json);
 })
 */
-
-
-
-
-
-
 /**
  * #####################################
  * ############## Fin de los endpoint

@@ -1,63 +1,74 @@
-html, body {
-	position: relative;
-	width: 100%;
-	height: 100%;
+@font-face{
+    font-family: 'satisfy';
+    src: url('../Satisfy/Satisfy-Regular.ttf');
 }
-
-body {
-	color: #333;
-	margin: 0;
-	padding: 8px;
-	box-sizing: border-box;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-}
-
-a {
-	color: rgb(0,100,200);
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:visited {
-	color: rgb(0,80,160);
-}
-
-label {
-	display: block;
-}
-
-input, button, select, textarea {
-	font-family: inherit;
+input{
+	font-family: 'satisfy';
 	font-size: inherit;
-	-webkit-padding: 0.4em 0;
 	padding: 0.4em;
 	margin: 0 0 0.5em 0;
 	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
+	border: 1px solid darkolivegreen;
+	border-radius: 50px;
 }
 
 input:disabled {
-	color: #ccc;
+	color:darkolivegreen;
 }
-
-button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
-}
-
-button:disabled {
-	color: #999;
-}
-
-button:not(:disabled):active {
-	background-color: #ddd;
-}
-
 button:focus {
-	border-color: #666;
+	border-color: greenyellow;
+}
+h1{
+    text-align: center;
+    color:lightseagreen;
+    font-family: 'satisfy';
+    font-size: 80px;
+    text-decoration: rgb(62, 62, 156);
+    text-shadow: 4px 4px 4px rgb(7, 87, 114);
+}
+h2{
+	text-align: center;
+    color:lightseagreen;
+    font-family: 'satisfy';
+	font-size: 60px;
+	text-underline-position: auto;
+	text-decoration-line: underline;
+  	text-decoration-style: solid;
+  	text-decoration-color: rgb(62, 62, 156);
+}
+h3{
+	text-align: center;
+	color:lightseagreen;
+    font-family: 'satisfy';
+    font-size: 40px;
+	text-underline-position: auto;
+	text-decoration-line: underline;
+  	text-decoration-style: solid;
+  	text-decoration-color: rgb(62, 62, 156);
+}
+img{
+	background-color: transparent;
+	opacity:100;
+	background-clip: initial;
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: center;
+}
+button {
+    text-align: center;
+    font-style: oblique;
+    font-family:'satisfy';
+    display: inline-block;
+    border-radius: 80%;
+    /*! text-shadow:10px 10px 10px rgb(67, 202, 134); */
+    background: lightseagreen;
+    /*! text-decoration-color:darkseagreen; */
+    padding: 10px;
+    font-size: 20px;
+    color: rgb(4, 89, 47);
+    margin-left: auto;
+}
+button:hover {
+	padding: 30px;
+	background: rgb(34, 34, 100);
 }

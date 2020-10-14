@@ -1,7 +1,8 @@
 <script>
-	import AppUsuarios from './AppUsuarios.svelte';
+	//import AppUsuarios from './AppUsuarios.svelte';
 	//import AppUsuarios from './Appclientes.svelte';
     import AppaltaUsuario from './AppaltaUsuario.svelte';
+    import Login from './Login.svelte';
     /*
     var pag = 'Appclientes';
     function setPage(pageName) {
@@ -12,7 +13,7 @@
 
 <main> 
         <AppaltaUsuario/>
-        <AppUsuarios/>
+        <Login/>
     <!--
         <nav>
 			<h3>Si eres nuevo recuerda inscribirte</h3>
@@ -37,50 +38,5 @@
 </main>
 
 <style>
-	@font-face{
-    text-decoration: rgb(62, 62, 156);
-    font-size: x-large; 
-    font-family: 'satisfy';
-    src: url ('/home/chus/Cliente_proveedor/Satisfy');
-}
-h1{
-    text-align: center;
-    color:lightseagreen;
-    font-family: 'satisfy';
-    font-size: xx-large;
-    text-shadow: 4px 4px 4px rgb(7, 87, 114);
-    text-underline-position: auto;
-}
-h2{
-	text-align: center;
-    color:lightseagreen;
-    font-family: 'satisfy';
-    font-size: 60px;
-    text-underline-position: auto;
-}
-h3{
-	text-align: center;
-    color:lightseagreen;
-    font-family: 'satisfy';
-    font-size: xx-large;
-    text-underline-position: auto;
-}
-button {
-    text-align: center;
-    font-style: oblique;
-    font-family:'satisfy';
-    display: inline-block;
-    border-radius: 70%;
-    text-shadow:10px 10px 10px rgb(67, 202, 134);
-    background: lightseagreen;
-    text-decoration-color:darkseagreen;
-    padding: 10px;
-    font-size: 20px;
-    color: rgb(70, 110, 90);
-    margin-left: auto;
-}
-button:hover {
-padding: 30px;
-background: blue;
-}
+	
 </style>

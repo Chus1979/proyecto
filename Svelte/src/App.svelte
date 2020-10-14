@@ -1,5 +1,5 @@
 <script>
-	import Appinicio from './Appinicio.svelte';
+    import Appinicio from './Appinicio.svelte';
     
     function handleClick () {
     };
@@ -7,7 +7,7 @@
 
 <main >
     <!-- svelte-ignore a11y-missing-attribute -->
-    <img src = '/home/chus/Cliente_proveedor/API/img/Fondo_pantalla.jpg'>
+    <img src="./img/Fondo_pantalla.jpg"/>
     <h1>Food on wheels</h1>
         <h2>"De la huerta a tu Casa"</h2>
             <h3>Bienvenidos:</h3>
@@ -21,18 +21,15 @@
 
 <style>
 	@font-face{
-    text-decoration: rgb(62, 62, 156);
-    font-size: x-large; 
     font-family: 'satisfy';
-    src: url ('/home/chus/Cliente_proveedor/Satisfy');
+    src: url('../Satisfy/Satisfy-Regular.ttf');
 }
-img{
-    background-size: 0px,0px,0px,0px;
-}
+
 h1{
     text-align: center;
     color:lightseagreen;
     font-family: 'satisfy';
+    text-decoration: rgb(62, 62, 156);
     font-size: 80px;
     text-shadow: 6px 6px 6px rgb(7, 87, 114);
 }

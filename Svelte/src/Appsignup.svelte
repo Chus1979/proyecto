@@ -1,22 +1,32 @@
 <script>
-//import { text } from "svelte/internal";
+import { text } from "svelte/internal";
 
-    //var txt = '';
+
+		
+    var txt = '';
 	var listadoUsuarios = [];
-	//var files;	
-	var nombre,dni, email, nick, clave,nifCif
-
+	var id;
+    //var files;	
+	var nombre,dni, email, nick, clave,
+	
 	async function borrar(){	//para q borre todos los datos despues de darle a enviar
 		nombre=dni=email=nick=clave=nifCif='';
 	};
 	
+	};
+	async function getNuevoUsuario(txt){
+		var getNuevoUsuarioURL = `http://localhost:3000/nuevoUsuario/?texto=${txt}`;
+		var resp = await fetch(getNuevoUsuarioURL);
+		listadoUsuarios = await resp.json();
+		enviar();
+		borrar();
+    }
     async function enviar() {
-		var url = 'http://localhost:3000/nuevoUsuario/'
-		var data = new FormData();//los data.append deben ser= a los inputs
+		var url = 'http://localhost:3000/api/altaUsuario/'
+		var data = new FormData();
 		//data.append('files',files[0]);
 		data.append('nombre',nombre);
 		data.append('dni',dni);
-		data.append('nifCif', nifCif);
 		data.append('email',email);
 		data.append('nick',nick);
 		data.append('clave',clave);
@@ -37,18 +47,49 @@
 		}
 		borrar();
     }
+	async function eliminarTexto(id) {
+		var getEliminarTextoURL = `http://localhost:3000/borrar/?id=${id}`;
+		var resp = await fetch(getEliminarTextoURL);
+		listadoUsuarios = await resp.json();
+		getModificarDoc();
+   	}
+	async function getListadoUsuarios(){
+		console.log(listadoUsuarios)
+		var getListadoUsuariosURL = 'http://localhost:3000/listadoUsuarios/';
+		var resp = await fetch(getListadoUsuariosURL);
+		listadoUsuarios = await resp.json();
+		getNuevoUsuario();
+		eliminarTexto(id);
+
+	}
+	async function getModificarDoc(){
+		var getModificarDocURL = 'http://localhost:3000/modificarDoc';
+		var resp = await fetch(getModificarDocURL);
+		listadoUsuarios = await resp.json();
+		
+		borrar();
+	}
+	/*async function updateSignups () {
+        var url = 'http://localhost:3000/api/listFiles/';
+        var resp = await fetch(url);
+		uploads = await resp.json();
+		eliminarTexto(id);
+	};*/
+	getListadoUsuarios();
+	/*
+	updateSignups();
+	*/
 </script>
 
 <main>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<div id="nuevoUsuario">
 		<h2>Nuevo Usuario.-</h2>
-		<p>Nombre:  <input id="nombre" type="text" bind:value={nombre}></p>
-		<p>D.N.I.:  <input id="dni" type="text" bind:value={dni}></p>
-		<p>N.I.F/C.I.F.:  <input id="nifCif" type="text" bind:value={nifCif}></p>
-		<p>Email:  <input id="email" type="email" bind:value={email}></p>
-		<p>Nick:  <input id="nick" type="text" bind:value={nick}></p>
-		<p>Contraseña:  <input id="clave" type="password" bind:value={clave}></p>
+		<p>Nombre:<input id="nombre" type="text" bind:value={nombre}></p>
+		<p>D.N.I.:<input id="dni" type="text" bind:value={dni}></p>
+		<p>Email:<input id="email" type="email" bind:value={email}></p>
+		<p>Nick:<input id="nick" type="text" bind:value={nick}></p>
+		<p>Contraseña:<input id="clave" type="password" bind:value={clave}></p>
 		<!--
 		<p>Documento:<input id="files" type="file" bind:files={files}></p>
 		<select name="avatar" bind:value={avatar}>
@@ -79,10 +120,12 @@
 			<option value="9">Fresa
 				<img src="/home/chus/Cliente_proveedor/API/img/strawberry-2293337_1920.jpg">
 			</option>
+
+
 		</select>
 		-->
     </div>
-    <button on:click={enviar}>Enviar</button>	<!--con el nombre de la función es suficiente-->
+    <button on:click={enviar()}>Enviar</button>
 	<!--button on:click={borrar}>Borrar</button-->
 	<!--
 	<div>
@@ -97,11 +140,4 @@
 </main>
 
 <style>
-	@font-face{
-		font-family: 'Milestone';
-		src: url('../Milestone/MilestoneFreeVersion-Script.otf')
-	}
-	p{
-		font-family: 'Milestone';
-	}
 </style>
