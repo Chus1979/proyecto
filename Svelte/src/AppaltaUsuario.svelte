@@ -43,12 +43,12 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<div id="nuevoUsuario">
 		<h2>Nuevo Usuario.-</h2>
-		<p>Nombre:  <input id="nombre" type="text" bind:value={nombre}></p>
-		<p>D.N.I.:  <input id="dni" type="text" bind:value={dni}></p>
-		<p>N.I.F/C.I.F.:  <input id="nifCif" type="text" bind:value={nifCif}></p>
-		<p>Email:  <input id="email" type="email" bind:value={email}></p>
-		<p>Nick:  <input id="nick" type="text" bind:value={nick}></p>
-		<p>Contraseña:  <input id="clave" type="password" bind:value={clave}></p>
+		<p>Nombre:<input id="nombre" type="text" bind:value={nombre}></p>
+		<p>D.N.I.:<input id="dni" type="text" bind:value={dni}></p>
+		<p>N.I.F/C.I.F.:<input id="nifCif" type="text" bind:value={nifCif}></p>
+		<p>Email:<input id="email" type="email" bind:value={email}></p>
+		<p>Nick:<input id="nick" type="text" bind:value={nick}></p>
+		<p>Contraseña:<input id="clave" type="password" bind:value={clave}></p>
 		<!--
 		<p>Documento:<input id="files" type="file" bind:files={files}></p>
 		<select name="avatar" bind:value={avatar}>
@@ -97,11 +97,21 @@
 </main>
 
 <style>
-	@font-face{
-		font-family: 'Milestone';
-		src: url('../Milestone/MilestoneFreeVersion-Script.otf')
+@font-face{
+	font-family: 'Milestone';
+	src: url('../Milestone/MilestoneFreeVersion-Script.otf')
 	}
-	p{
-		font-family: 'Milestone';
-	}
+p{
+	font-family: 'Milestone';
+	color: rgb(48, 2, 2);
+	font-size: large;
+	font-style: oblique;
+	text-align: center;
+}
+input{
+    font-family: 'Milestone';
+	border-radius: 50px;
+	border-color: rgb(48, 2, 2);
+	margin-left: 10px;
+}
 </style>

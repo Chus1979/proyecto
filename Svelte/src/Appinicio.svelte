@@ -2,6 +2,7 @@
 	//import AppUsuarios from './AppUsuarios.svelte';
 	//import AppUsuarios from './Appclientes.svelte';
     import AppaltaUsuario from './AppaltaUsuario.svelte';
+    import ListaUsuarios from './ListaUsuarios.svelte';
     import Login from './Login.svelte';
     /*
     var pag = 'Appclientes';
@@ -14,6 +15,7 @@
 <main> 
         <AppaltaUsuario/>
         <Login/>
+        <ListaUsuarios/>
     <!--
         <nav>
 			<h3>Si eres nuevo recuerda inscribirte</h3>
