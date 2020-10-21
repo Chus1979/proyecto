@@ -1,5 +1,6 @@
 <script>
-    var userId;
+    
+    export var userId;
     var nick,  clave
     async function borrar(){
         clave = '';

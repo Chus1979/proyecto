@@ -1,21 +1,30 @@
 <script>
-	//import AppUsuarios from './AppUsuarios.svelte';
-	//import AppUsuarios from './Appclientes.svelte';
+	import Mercado from './Mercado.svelte';
+	import Appentrada from './Appentrada.svelte';
+    import Altaproductos from './Altaproductos.svelte';
     import AppaltaUsuario from './AppaltaUsuario.svelte';
+    import ApplistadoProduc from './ApplistadoProduc.svelte';
     import ListaUsuarios from './ListaUsuarios.svelte';
     import Login from './Login.svelte';
+    var userId;
     /*
     var pag = 'Appclientes';
     function setPage(pageName) {
         pag = pageName;
     }
     */
+    /*Todo está puesto en esta pag para ver si funciona 
+    luego hare los arreglos pertinentes*/
 </script>
 
 <main> 
         <AppaltaUsuario/>
-        <Login/>
+        <Login bind:userId = {userId}/>
         <ListaUsuarios/>
+        <Appentrada/>
+       <!-- <Mercado bind:userId = {userId}/>
+        <Altaproductos userId = {userId}/>
+        <ApplistadoProduc userId = {userId}/>-->
     <!--
         <nav>
 			<h3>Si eres nuevo recuerda inscribirte</h3>

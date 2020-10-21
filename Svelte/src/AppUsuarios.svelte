@@ -1,4 +1,5 @@
 <script>
+	import Appentrada from './Appentrada.svelte';
     var listadoUsuarios = [];
     //import eliminarUsuario from `./borrar/?id=${id}`;
 
@@ -18,10 +19,10 @@
         console.log(listadoUsuarios)
         //eliminarUsuario(id);
     }
-
-    getListadoUsuarios();
+     getListadoUsuarios();
 </script>
 
 <main>
     <!--de momento queda vacio-->
+    <Appentrada/>
 </main>

@@ -23,16 +23,15 @@ const mimeParser = multer({
 		},
 });
 var collection;
-
 //var collClien;
 //var collProv;
-//var collProduc;
+var collProduc;
 
 async function conectadb () {
-	var usuario = await MongoClient.connect(mongoURL);
-	collection = await usuario.db().collection('usuario');
+	var conexionMongo = await MongoClient.connect(mongoURL);
+	collection = await conexionMongo.db().collection('usuario');
 	//collProv = await client.db().collection('proveedores');
-	//collProduc = await client.db().collection('productos');
+	collProduc = await conexionMongo.db().collection('productos');
 }
 
 conectadb();
@@ -43,8 +42,6 @@ port = 3000;
  * ############## Inicio de los endpoint
  * #####################################
  */
-
-
  /**
   * ############# Endpoints clientes ###
   * ####################################
@@ -125,31 +122,10 @@ app.get('/eliminarCli/', async(req, res)=>{
 	res.send(json);
 })
 */
-
  /**
   * ############# Endpoints proveedores 
   * ####################################
   */
-
- /*
-app.post('/nuevoProv/',async (req,res)=>{
-    var nuevoProv= req.body.proveedor;
-    var pwd = req.body.pwd;
-	const hash = crypto.createHash('sha256');
-	hash.update(pwd);
-    var hashString = hash.digest('base64');
-    var datosProv = {
-        proveedor:req.body.proveedor,      
-        email:req.body.email,
-        clave:hashString,        
-    };
-    var mongoRes = await collection.insertOne(datosProv);
-    var proveedor = await collection.find().toArray();
-    var json = JSON.stringify(proveedor);
-    res.send(json);
-})
-*/
-
 /*
 app.get('/listadoProv/', async (req, res)=>{
     var proveedor = await collection.find().toArray();
@@ -157,20 +133,26 @@ app.get('/listadoProv/', async (req, res)=>{
         res.send(json);
 })
 */
-
-/*
-app.post('/listadoProduc/', async (req,res)=>{
-    var productos = {
-        producto:req.body.productos,
+app.post('/nuevoProduc/',mimeParser.none(), async (req,res)=>{
+    var ficha = {
+        producto:req.body.producto,
         precio:req.body.precio,
+        unidades:req.body.unidades,
+        stock:req.body.stock,
+        proveedor:req.body.proveedor,   
+    };
+    try {
+        var mongoRes = await collProduc.insertOne(ficha);
+        res.send('Ok');
+    } catch (err) {
+        res.status(500).send('Error');
     }
-    var mongoRes = await collProduc.insertOne(productos);
-    var productos = await collProduc.find().toArray();
-    var json =JSON.stringify(productos);
-        res.send(json);
-})
-*/
-
+});
+app.get('/listadoProduc/', async (req,res)=>{
+	var ficha = await collProduc.find().toArray();
+	var fichaJson = JSON.stringify(ficha);
+        res.send(fichaJson);		
+});
 /*
 app.get('/modificarProv/', async (req, res)=>{
     var proveedor = await collection.find().toArray();
