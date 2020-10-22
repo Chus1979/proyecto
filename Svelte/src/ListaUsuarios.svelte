@@ -8,9 +8,10 @@
     }
     getListadoUsuarios()
 </script>
-
-<div class = "Usuarios">
-    {#each usuarios as usuario}
-    <p>{usuario.nick}</p>
-    {/each}
-</div>
+<main>
+    <div class = "Usuarios">
+        {#each usuarios as usuario}
+        <p>{usuario.nick}</p>
+        {/each}
+    </div>
+</main>

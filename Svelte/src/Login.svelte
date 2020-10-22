@@ -25,6 +25,6 @@
 </main>
 <style>
 p{
-    font-family: 'Milestone';
+    font-family: 'mandinga';
 }
 </style>

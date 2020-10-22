@@ -1,11 +1,15 @@
 <script>
-	import Mercado from './Mercado.svelte';
-	import Appentrada from './Appentrada.svelte';
-    import Altaproductos from './Altaproductos.svelte';
     import AppaltaUsuario from './AppaltaUsuario.svelte';
-    import ApplistadoProduc from './ApplistadoProduc.svelte';
-    import ListaUsuarios from './ListaUsuarios.svelte';
     import Login from './Login.svelte';
+    import ListaUsuarios from './ListaUsuarios.svelte';
+    import Appentrada from './Appentrada.svelte';
+	//import Mercado from './Mercado.svelte';
+	
+    //import Altaproductos from './Altaproductos.svelte';
+    
+    //import ApplistadoProduc from './ApplistadoProduc.svelte';
+    
+    
     var userId;
     /*
     var pag = 'Appclientes';
@@ -21,7 +25,7 @@
         <AppaltaUsuario/>
         <Login bind:userId = {userId}/>
         <ListaUsuarios/>
-        <Appentrada/>
+        <Appentrada bind:userId = {userId}/>
        <!-- <Mercado bind:userId = {userId}/>
         <Altaproductos userId = {userId}/>
         <ApplistadoProduc userId = {userId}/>-->

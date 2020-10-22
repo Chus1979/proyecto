@@ -21,14 +21,13 @@
 
 <style>
 	@font-face{
-    font-family: 'satisfy';
-    src: url('../Satisfy/Satisfy-Regular.ttf');
+    font-family: 'black_chancery';
+    src: url('../black_chancery/BLKCHCRY.TTF');
 }
 
 h1{
     text-align: center;
     color:lightseagreen;
-    font-family: 'satisfy';
     text-decoration: rgb(62, 62, 156);
     font-size: 80px;
     text-shadow: 6px 6px 6px rgb(7, 87, 114);
@@ -36,7 +35,6 @@ h1{
 h2{
 	text-align: center;
     color:lightseagreen;
-    font-family: 'satisfy';
     font-size: 60px;
     text-underline-position: auto;
 }
@@ -54,13 +52,13 @@ h3{
 p{
     text-align: center;
     color:rgb(2, 82, 78);
-    font-family: 'satisfy';
+    font-family: 'mandinga';
     font-size: large;
 }
 button {
     text-align: center;
     font-style: oblique;
-    font-family:'satisfy';
+    font-family:'mandinga';
     display: inline-block;
     border-radius: 70%;
     text-shadow:10px 10px 10px rgb(67, 202, 134);

@@ -45,7 +45,7 @@
 		<p>Precio:<input id="precio" type="text" bind:value={precio}></p>
 		<p>Unidades:<input id="unidades" type="text" bind:value={unidades}></p>
 		<p>Stock:<input id="stock" type="text" bind:value={stock}></p>
-		<p {userId}></p>
+		<p>{userId}</p>
     </div>
 	<button on:click={enviar}>Enviar</button>
 	<p>Producto agregado: {resultado}</p>
@@ -53,18 +53,18 @@
 
 <style>
 @font-face{
-	font-family: 'Milestone';
-	src: url('../Milestone/MilestoneFreeVersion-Script.otf')
+	font-family: 'black_chancery';
+	src: url('../blac_chancery/BLKCHCRY.TTF')
 	}
 p{
-	font-family: 'Milestone';
+	font-family: 'mandinga';
 	color: rgb(48, 2, 2);
 	font-size: large;
 	font-style: oblique;
 	text-align: center;
 }
 input{
-    font-family: 'Milestone';
+    font-family: 'mandinga';
 	border-radius: 50px;
 	border-color: rgb(48, 2, 2);
 	margin-left: 10px;

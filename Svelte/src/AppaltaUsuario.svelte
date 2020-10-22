@@ -83,33 +83,23 @@
 		-->
     </div>
     <button on:click={enviar}>Enviar</button>	<!--con el nombre de la función es suficiente-->
-	<!--button on:click={borrar}>Borrar</button-->
-	<!--
-	<div>
-		<h2>Ficheros subidos:</h2>
-		<div>
-			{#each uploads as file}
-			<a href="http://localhost:3000/api/ficheros/?file={file.name}"><p><strong>{file.oldName}</strong> {file.mime}</p></a>
-			{/each}
-		</div>
-	</div>
-	-->
+	
 </main>
 
 <style>
 @font-face{
-	font-family: 'Milestone';
-	src: url('../Milestone/MilestoneFreeVersion-Script.otf')
+	font-family: 'mandinga';
+	src: url('../mandinga/MANDINGA.TTF')
 	}
 p{
-	font-family: 'Milestone';
+	font-family: 'mandinga';
 	color: rgb(48, 2, 2);
 	font-size: large;
 	font-style: oblique;
 	text-align: center;
 }
 input{
-    font-family: 'Milestone';
+    font-family: 'mandinga';
 	border-radius: 50px;
 	border-color: rgb(48, 2, 2);
 	margin-left: 10px;

@@ -1,9 +1,9 @@
 @font-face{
-    font-family: 'satisfy';
-    src: url('../Satisfy/Satisfy-Regular.ttf');
+    font-family: 'cream_cake';
+    src: url('../cream_cake/Cream Cake.ttf');
 }
 input{
-	font-family: 'Milestone';
+	font-family: 'mandinga';
 	font-size: inherit;
 	padding: 0.4em;
 	margin: 0 0 0.5em 0;
@@ -18,9 +18,9 @@ button:focus {
 	border-color: greenyellow;
 }
 h1{
+	font-family: 'black_chancery';
     text-align: center;
     color:lightseagreen;
-    font-family: 'satisfy';
     font-size: 80px;
     text-decoration: rgb(62, 62, 156);
     text-shadow: 4px 4px 4px rgb(7, 87, 114);
@@ -28,7 +28,7 @@ h1{
 h2{
 	text-align: center;
     color:lightseagreen;
-    font-family: 'satisfy';
+    font-family: 'black_chancery';
 	font-size: 60px;
 	text-underline-position: auto;
 	text-decoration-line: underline;
@@ -38,7 +38,7 @@ h2{
 h3{
 	text-align: center;
 	color:lightseagreen;
-    font-family: 'satisfy';
+    font-family: 'black_chancery';
     font-size: 40px;
 	text-underline-position: auto;
 	text-decoration-line: underline;
@@ -56,7 +56,7 @@ img{
 button {
     text-align: center;
     font-style: oblique;
-    font-family:'satisfy';
+    font-family:'cream_cake';
     display: inline-block;
     border-radius: 80%;
     /*! text-shadow:10px 10px 10px rgb(67, 202, 134); */
@@ -68,6 +68,6 @@ button {
     margin-left: auto;
 }
 button:hover {
-	padding: 30px;
-	background: rgb(34, 34, 100);
+	padding: 15px;
+	background: rgb(114, 114, 240);
 }
