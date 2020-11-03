@@ -1,31 +1,37 @@
 <script>
     import AppaltaUsuario from './AppaltaUsuario.svelte';
     import Login from './Login.svelte';
-    import ListaUsuarios from './ListaUsuarios.svelte';
-    import Appentrada from './Appentrada.svelte';
+    //import ListaUsuarios from './ListaUsuarios.svelte';
+   // import Appentrada from './Appentrada.svelte';
 	//import Mercado from './Mercado.svelte';
-	
     //import Altaproductos from './Altaproductos.svelte';
-    
     //import ApplistadoProduc from './ApplistadoProduc.svelte';
     
-    
-    var userId;
-    /*
-    var pag = 'Appclientes';
-    function setPage(pageName) {
-        pag = pageName;
-    }
-    */
-    /*Todo está puesto en esta pag para ver si funciona 
-    luego hare los arreglos pertinentes*/
+    export var seccion; //exportamos seccion para poder ir de un fichero a otro y el bind, lo pusimos en el anterior
+
+    export var userId; 
+    /** es la 1º vez q se nombra y nos va a hacer falta para el resto del programa
+     * Se le hace un bind para copmpartir con el resto de ficheros 
+     * hay q acordarse de hacer export var userId cuando lo queramos usar =
+     * q el resto de var q necesitemos compartir entre ficheros
+     * */
+   
 </script>
 
 <main> 
-        <AppaltaUsuario/>
-        <Login bind:userId = {userId}/>
-        <ListaUsuarios/>
-        <Appentrada bind:userId = {userId}/>
+        <AppaltaUsuario  bind:userId={userId} bind:seccion={seccion}/>
+        <Login bind:userId={userId} bind:seccion={seccion}/>
+
+
+
+
+
+
+
+
+
+
+
        <!-- <Mercado bind:userId = {userId}/>
         <Altaproductos userId = {userId}/>
         <ApplistadoProduc userId = {userId}/>-->

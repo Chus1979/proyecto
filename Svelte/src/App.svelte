@@ -1,76 +1,60 @@
 <script>
+	import Bienvenida from './Bienvenida.svelte';
     import Appinicio from './Appinicio.svelte';
-    
-    function handleClick () {
-    };
+    import Appentrada from './Appentrada.svelte';
+import Mercado from './Mercado.svelte';
+import Altaproductos from './Altaproductos.svelte';
+
+    var seccion = "bienvenida";
+    var userId = null;
+        
 </script>
 
-<main >
-    <!-- svelte-ignore a11y-missing-attribute -->
-    <img src="./img/Fondo_pantalla.jpg"/>
-    <h1>Food on wheels</h1>
-        <h2>"De la huerta a tu Casa"</h2>
-            <h3>Bienvenidos:</h3>
-            <p>Promovemos el contacto directo entre clientes y proveedores</p>
-            <p>Con los tiempos que corren hoy en día...¿que mejor manera de comer comida sana directamente del huerto?</p>
-            <p>Entren y disfruten de una buena selección de productos frescos, recien cosechados de las huertas</p>
-            <button on:click={handleClick}>Adelante</button>
-            <Appinicio/>
-
+<main>
+    <div class="app" >
+        <head>
+            <meta name="viewport" content="width=device-width">
+        </head>
+        <body>
+        <h1>"Food on wheels"</h1>
+            <h2>De la huerta a tu Casa</h2>  
+            {#if userId}    
+                {#if seccion === "entrada"}
+                <Appentrada bind:seccion={seccion} bind:userId={userId}/>
+                {/if}
+                {#if seccion ="mercado"}
+                <Mercado bind:seccion={seccion} bind:userId={userId}/>
+                {/if}
+                {#if seccion ="producto"}
+                <Altaproductos bind:seccion={seccion} bind:userId={userId}/>
+                {/if}
+            {:else}
+                {#if seccion === "bienvenida"}
+                <Bienvenida bind:seccion={seccion}/>
+                {/if}
+                {#if seccion === "inicio"}
+                <Appinicio bind:userId={userId} bind:seccion={seccion}/>
+                {/if}
+            {/if}
+        </body>
+    </div>
 </main>
 
 <style>
-	@font-face{
+@font-face{
     font-family: 'black_chancery';
     src: url('../black_chancery/BLKCHCRY.TTF');
 }
-
-h1{
-    text-align: center;
-    color:lightseagreen;
-    text-decoration: rgb(62, 62, 156);
-    font-size: 80px;
-    text-shadow: 6px 6px 6px rgb(7, 87, 114);
-}
-h2{
-	text-align: center;
-    color:lightseagreen;
-    font-size: 60px;
-    text-underline-position: auto;
-}
-h3{
-	text-align: center;
-    color:lightseagreen;
-    font-family: 'satisfy';
-    font-size: xx-large;
-    text-decoration: 10px;
-    text-decoration-color: aqua;
-    text-decoration-style: solid;
-    text-decoration-line:underline;
-    
-}
-p{
-    text-align: center;
-    color:rgb(2, 82, 78);
-    font-family: 'mandinga';
-    font-size: large;
-}
-button {
-    text-align: center;
-    font-style: oblique;
-    font-family:'mandinga';
-    display: inline-block;
-    border-radius: 70%;
-    text-shadow:10px 10px 10px rgb(67, 202, 134);
-    background: lightseagreen;
-    text-decoration-color:darkseagreen;
-    padding: 10px;
-    font-size: 20px;
-    color: rgb(70, 110, 90);
-    margin-left: 600px;
-}
-button:hover {
-    padding: 10px;
-    background: rgb(96, 96, 167);
+div.app{
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-family:'black_chancery' ;
+    background: transparent;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
 }
 </style>

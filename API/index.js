@@ -72,27 +72,29 @@ app.post('/nuevoUsuario/', mimeParser.none(), async (req,res)=>{
         //FormaPago:req.query.FormaPago,
        // HistorialPedidos:req.query.HistorialPedidos,
         //Carro:req.query.Carro,	
-		//avatar:req.body.avatar,
+		avatar:req.body.avatar,
 		//file:req.body.file,
 	};
 	//var result = await collFiles.insertOne(file);
 	var mongoRes = await collection.insertOne(documento);
-	var usuario = await collection.find().toArray();
-	var json = JSON.stringify(usuario);
+	//var usuario = await collection.find().toArray();
+	//var json = JSON.stringify(usuario);
 	//console.log(file);
 	//res.send(result.insertedId);
-	console.log(mongoRes);
-	res.send(json);
+	console.log(mongoRes.ops[0]._id);
+	res.send(mongoRes.ops[0]._id);
 });
 app.get('/login/', async (req, res)=>{
     var nick = req.query.nick;
     var pwd = req.query.clave;
+    var icono = req.query.avatar;
     const hash = crypto.createHash('sha256');
 	hash.update(pwd);
     var hashString = hash.digest('base64');
     var filtro = {
         nick: nick,
         clave: hashString,
+        icono: icono,
     };
     var usuario = await collection.findOne(filtro);
     if(usuario){
@@ -136,9 +138,9 @@ app.get('/listadoProv/', async (req, res)=>{
 app.post('/nuevoProduc/',mimeParser.none(), async (req,res)=>{
     var ficha = {
         producto:req.body.producto,
-        precio:req.body.precio,
+        precio: parseFloat(req.body.precio),
         unidades:req.body.unidades,
-        stock:req.body.stock,
+        stock: parseFloat(req.body.stock),
         proveedor:req.body.proveedor,   
     };
     try {

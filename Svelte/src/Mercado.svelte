@@ -6,6 +6,7 @@
     listado productos.
     En el html pondré aspento de tabla para q sea más sencillo de ver para el usuario*/
     export  var userId;
+    export var seccion;
     var listadoProduc = [];
     
     async function getlistadoProduc(){
@@ -21,21 +22,31 @@
         <thead>
             <tr>
                 <th>Producto</th>
-                <th>Precio</th>
+                <th>Precio(€)</th>
                 <th>Unidades</th>
                 <th>Stock</th>
                 <th>Cantidad</th>
             </tr>
         </thead>
         <tbody >
-             <AppProductos/>
+             <AppProductos seccion={seccion}/>
         </tbody>
     </table>
 </main>
 
 <style>
-    table.tablaMercado {
-        background: rgba(128, 255, 0, 0.3);
-        border: 1px solid rgba(100, 200, 0, 0.3);
-    }
+@font-face{
+    font-family: "ZCOOLXiaoWei-Regular.ttf";
+    src: url("../ZCOOL_XiaoWei/ZCOOLXiaoWei-Regular.ttf");
+}
+table.tablaMercado {
+    font-family: "ZCOOLXiaoWei-Regular.ttf";
+    background: rgba(2, 141, 2, 0.3);
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+thead{
+    font-size: 25px;
+}
 </style>

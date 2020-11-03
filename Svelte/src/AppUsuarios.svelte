@@ -16,7 +16,6 @@
         var getListadoUsuariosURL = 'http://localhost:3000/listadoUsuarios/';
         var resp = await fetch(getListadoUsuariosURL);
         listadoUsuarios = await resp.json();
-        console.log(listadoUsuarios)
         //eliminarUsuario(id);
     }
      getListadoUsuarios();

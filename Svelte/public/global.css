@@ -2,9 +2,19 @@
     font-family: 'cream_cake';
     src: url('../cream_cake/Cream Cake.ttf');
 }
+img{
+	background-image: url('/img/Fondo_pantalla.jpg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-color: transparent;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
 input{
-	font-family: 'mandinga';
-	font-size: inherit;
+	font-family: 'Acme';
 	padding: 0.4em;
 	margin: 0 0 0.5em 0;
 	border-radius: 50px;
@@ -20,24 +30,23 @@ button:focus {
 h1{
 	font-family: 'black_chancery';
     text-align: center;
-    color:lightseagreen;
+    color:rgb(6, 28, 84);
     font-size: 80px;
     text-decoration: rgb(62, 62, 156);
-    text-shadow: 4px 4px 4px rgb(7, 87, 114);
+	text-shadow: 6px 6px 6px rgb(7, 87, 114);
 }
 h2{
 	text-align: center;
-    color:lightseagreen;
+    color:rgb(6, 28, 84);
     font-family: 'black_chancery';
 	font-size: 60px;
-	text-underline-position: auto;
 	text-decoration-line: underline;
-  	text-decoration-style: solid;
+  	text-decoration-style: double;
   	text-decoration-color: rgb(62, 62, 156);
 }
 h3{
 	text-align: center;
-	color:lightseagreen;
+	color:rgb(6, 28, 84);
     font-family: 'black_chancery';
     font-size: 40px;
 	text-underline-position: auto;
@@ -45,29 +54,23 @@ h3{
   	text-decoration-style: solid;
   	text-decoration-color: rgb(62, 62, 156);
 }
-img{
-	background-color: transparent;
-	opacity:100;
-	background-clip: initial;
-	background-repeat: no-repeat;
-	background-size: auto;
-	background-position: center;
-}
 button {
     text-align: center;
     font-style: oblique;
     font-family:'cream_cake';
-    display: inline-block;
     border-radius: 80%;
-    /*! text-shadow:10px 10px 10px rgb(67, 202, 134); */
     background: lightseagreen;
-    /*! text-decoration-color:darkseagreen; */
     padding: 10px;
-    font-size: 20px;
-    color: rgb(4, 89, 47);
-    margin-left: auto;
+    font-size: 40px;
+	color: rgb(4, 89, 47);
+	margin-left: 50%;
 }
 button:hover {
 	padding: 15px;
 	background: rgb(114, 114, 240);
+}
+input#cantidad{
+	font-size: 30px;
+	text-align: center;
+	font-family: 'cream_cake';
 }
