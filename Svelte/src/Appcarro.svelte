@@ -1,5 +1,5 @@
 <script>
-    import AppCompra from './AppCompra.svelte';
+    //import AppCompra from './AppCompra.svelte';
     //import Appentrada from './Appentrada.svelte';
 
     export var carrito;
@@ -25,7 +25,12 @@
         });
        return total;
     };
+    async function comprar(){
+        seccion = "comprar";
+    }
+
 </script>
+
 <main>
     {userId}
     <table class="carro"> 
@@ -48,16 +53,15 @@
             </tr>
             {/each}
             <tr>
-                <td class="total" colspan="2">Total Compra:</td>
+                <td class="total">Total Compra:</td>
                 <td>{total}€</td>   <!--ponemos la var q es lo q cambia-->
             </tr>
         </tbody>
     </table>
-        <!--button id="volverEntrada" on:click={volverEntrada}>VolverEntrada</button>
-            <Appentrada userId = {userId}/-->
-        <button id="comprar" on:click={comprar}>Comprar</button>
-            <AppCompra userId = {userId}, bind:value = {total}/>
+    <button id="comprar" on:click={comprar}>Comprar</button>
+    
 </main>
+
 <style>
 table.carro{
     font-family: "ZCOOLXiaoWei-Regular.ttf";
@@ -82,5 +86,10 @@ td.total{
     font-size: 25px;
     color:darkblue;
     border-top: 3px solid darkorchid;
+}
+input{
+    color:chocolate;
+    font-family: "ZCOOLXiaoWei-Regular.ttf";
+    text-align: center;
 }
 </style>

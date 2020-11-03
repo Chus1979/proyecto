@@ -1,9 +1,12 @@
 <script>
+	import AppCompra from './AppCompra.svelte';
+	import Appcarro from './Appcarro.svelte';
+	import AppProductos from './AppProductos.svelte';
 	import Bienvenida from './Bienvenida.svelte';
     import Appinicio from './Appinicio.svelte';
     import Appentrada from './Appentrada.svelte';
-import Mercado from './Mercado.svelte';
-import Altaproductos from './Altaproductos.svelte';
+    import Mercado from './Mercado.svelte';
+    import Altaproductos from './Altaproductos.svelte';
 
     var seccion = "bienvenida";
     var userId = null;
@@ -11,6 +14,7 @@ import Altaproductos from './Altaproductos.svelte';
 </script>
 
 <main>
+
     <div class="app" >
         <head>
             <meta name="viewport" content="width=device-width">
@@ -22,11 +26,20 @@ import Altaproductos from './Altaproductos.svelte';
                 {#if seccion === "entrada"}
                 <Appentrada bind:seccion={seccion} bind:userId={userId}/>
                 {/if}
-                {#if seccion ="mercado"}
+                {#if seccion === "altaproduc"}
+                <Altaproductos bind:seccion={seccion} bind:userId={userId}/>
+                {/if}
+                {#if seccion === "producto"}
+                <AppProductos bind:seccion={seccion} bind:userId={userId}/>
+                {/if}
+                {#if seccion === "mercado"}
                 <Mercado bind:seccion={seccion} bind:userId={userId}/>
                 {/if}
-                {#if seccion ="producto"}
-                <Altaproductos bind:seccion={seccion} bind:userId={userId}/>
+                {#if seccion === "carro"}
+                <Appcarro bind:seccion={seccion} bind:userId={userId}/>
+                {/if}
+                {#if seccion === "comprar"}
+                <AppCompra bind:seccion={seccion} bind:userId={userId}/>
                 {/if}
             {:else}
                 {#if seccion === "bienvenida"}
@@ -46,15 +59,7 @@ import Altaproductos from './Altaproductos.svelte';
     src: url('../black_chancery/BLKCHCRY.TTF');
 }
 div.app{
-    margin-left: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
     font-family:'black_chancery' ;
     background: transparent;
-    margin-left: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
 }
 </style>

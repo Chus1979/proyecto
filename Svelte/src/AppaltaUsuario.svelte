@@ -37,7 +37,7 @@
 			actualizar = await res.text();
 			console.log(actualizar);
 			userId = actualizar;
-			seccion = "entrada"
+			seccion = "entrada";
 		} catch (err) {
 			console.log(`********`);
 			window.alert(`Algo salio mal: ${err.message}`)
@@ -58,9 +58,7 @@
 		<p>Email:<input id="email" type="email" bind:value={email}></p>
 		<p>Nick:<input id="nick" type="text" bind:value={nick}></p>
 		<p>Contraseña:<input id="clave" type="password" bind:value={clave}></p>
-		<p>Avatar:
-			<Avatar bind:nick={nick}/> <!--lo asociamos a nick que es lo q va aparecer en el reso de ficheros-->
-		</p>
+		<p>Avatar:<Avatar bind:nick={nick}/></p><!--lo asociamos a nick que es lo q va aparecer en el reso de ficheros-->	
 	</div>
 	<button on:click={enviar}>Enviar</button>	<!--con el nombre de la función es suficiente-->
 	<!--	

@@ -3,7 +3,7 @@
     import Appcarro from './Appcarro.svelte';
   
     export var userId;
-    //export var seccion;
+    export var seccion;
     var listadoProduc = [];
     var carrito = [];
 
@@ -43,7 +43,7 @@
             </td>
         </tr>
 {/each}
-<Appcarro bind:carrito = {carrito}/>
+<Appcarro bind:carrito = {carrito} bind:seccion={seccion} bind:userId={userId}/>
 
 <style>
 @font-face{
@@ -55,4 +55,5 @@ td{
     text-align: center;
     font-family: "ZCOOLXiaoWei-Regular.ttf";
 }
+
 </style>

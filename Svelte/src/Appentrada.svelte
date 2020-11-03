@@ -10,15 +10,15 @@
     async function mercado () {
         seccion = "mercado";       
     };
-    async function productos () {
-        seccion = "productos";       
+    async function altaproduc () {
+        seccion = "altaproduc";       
     };
 </script>
 
 <main>
-
+{userId}
         <button id="mercado" on:click={mercado}>Mercado</button>
-        <button id="productos" on:click={productos}>Alta Productos</button>
+        <button id="altaproduc" on:click={altaproduc}>Alta Productos</button>
 
 </main>
 
@@ -26,27 +26,8 @@
 button#mercado{
     margin-left: 40%;
 }
-button#productos{
+button#altaproduc{
     margin-left: 60%;
 }
-button#regresarM{
-    background-image:url(./iconos/arrow-go-back-fill.svg);
-    padding: 20px;
-    border-radius: 80%;
-    background-repeat:no-repeat;
-    height:70px;
-    width:70px;
-    background-position:center;
-    margin-left: 40%;
-}
-button#regresarP{
-    background-image:url(./iconos/arrow-go-back-fill.svg);
-    padding: 20px;
-    border-radius: 80%;
-    background-repeat:no-repeat;
-    height:70px;
-    width:70px;
-    background-position:center;
-    margin-left: 60%;
-}
+
 </style>

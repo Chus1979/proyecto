@@ -15,9 +15,13 @@
         listadoProduc = await resp.json();
     }
     getlistadoProduc();
+    async function regresar(){
+        seccion = "entrada";
+    }
 </script>
 <main>
     <p>{userId}</p>
+    <button id="regresar" on:click={regresar}></button>
     <table class="tablaMercado">
         <thead>
             <tr>
@@ -29,7 +33,7 @@
             </tr>
         </thead>
         <tbody >
-             <AppProductos seccion={seccion}/>
+             <AppProductos seccion={seccion} bind:userId={userId}/>
         </tbody>
     </table>
 </main>
@@ -48,5 +52,15 @@ table.tablaMercado {
 }
 thead{
     font-size: 25px;
+}
+button#regresar{
+    background-image:url(./iconos/arrow-go-back-fill.svg);
+    padding: 50px;
+    border-radius: 80%;
+    background-repeat:no-repeat;
+    height:70px;
+    width:70px;
+    background-position:center;
+    margin-left: 60%;
 }
 </style>

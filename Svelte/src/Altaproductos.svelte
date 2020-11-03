@@ -1,13 +1,12 @@
 <script>
-	import Avatar from './Avatar.svelte';
 	export var userId;
-	export var nick;
 	export var seccion;
 
 	var resultado;
-	var producto, precio, unidades, stock,avatar;
+	var producto, precio, unidades, stock;
 	
 	$: resultado;
+
 	async function borrar(){	//para q borre todos los datos despues de darle a enviar
 		producto=precio=unidades=stock='';
 	};
@@ -25,7 +24,6 @@
 			data.append('unidades',unidades);
 			data.append('stock',stock);
 			data.append('proveedor',userId);
-			data.append('avatar',avatar)
 			var requestOptions = {
 				method: 'POST',
 				body: data,
@@ -37,19 +35,16 @@
 			console.log(`********`);
 			window.alert(`Algo salio mal: ${err.message}`)
 		}
-		seccion = "producto";
 		borrar();
 	}
-	async function entrada(){
+	async function regresar(){
 		seccion = "entrada";
 	}
 </script>
 
 <main>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<div>
-		<Avatar bind:nick={nick}/>
-	</div>	
+
 	<div id="nuevoProducto">
 		<h2>Añadir Productos.-</h2>
 		<p>Productos:<input id="producto" type="text" bind:value={producto}></p>
@@ -60,14 +55,14 @@
     </div>
 	<button on:click={enviar}>Enviar</button>
 	<p>Producto agregado: {resultado}</p>
-	<button on:click={entrada}>Entrada</button>
+	<button class="regresar" on:click={regresar}></button>
 </main>
 
 <style>
 @font-face{
 	font-family: 'black_chancery';
 	src: url('../blac_chancery/BLKCHCRY.TTF')
-	}
+}
 p{
 	font-family: 'black_chancery';
 	color: rgb(48, 2, 2);
@@ -80,5 +75,18 @@ input{
 	border-radius: 50px;
 	border-color: rgb(48, 2, 2);
 	margin-left: 10px;
+	color:chocolate;
+	background-color: rgb(158, 81, 52);
 }
+button.regresar{
+    background-image:url(./iconos/arrow-go-back-fill.svg);
+    padding: 50px;
+    border-radius: 80%;
+    background-repeat:no-repeat;
+    height:70px;
+    width:70px;
+    background-position:center;
+    margin-left: 40%;
+}
+
 </style>

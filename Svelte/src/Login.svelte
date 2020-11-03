@@ -1,7 +1,7 @@
 <script>
-	import AppaltaUsuario from './AppaltaUsuario.svelte';
-    import Appentrada from "./Appentrada.svelte";
-    import Appinicio from './Appinicio.svelte';
+	//import AppaltaUsuario from './AppaltaUsuario.svelte';
+    //import Appentrada from "./Appentrada.svelte";
+    //import Appinicio from './Appinicio.svelte';
 
     export var seccion;
     export var userId;
@@ -21,11 +21,9 @@
         seccion = "entrada";
         console.log(userId);
         borrar();
-        seccion = "entrada";
     }
-   //getLogin();
-    
 
+    
 </script>
 
 <main>
@@ -33,13 +31,7 @@
         <h2>Si ya eres usuario, escribe el nick y la clave.-</h2>
         <p>Nick.- <input id="nick" type="text" placeholder="Completa este campos" bind:value={nick}></p><br>
         <p>Clave.- <input id="clave" type="password" placeholder="Escribe tu clave para poder acceder" bind:value={clave}></p>
-        <button on:click={getLogin}>Enviar</button>
-        
-        <p>Usuario que inició sesion: {userId}</p>
-
-        <!--button on:click={inicio}>Inicio</button-->
-
-
+        <button on:click= {getLogin}>Enviar</button>
     </div>
 </main>
 
@@ -48,11 +40,12 @@ p{
     font-family: 'ZCOOLXiaoWei-Regular.ttf';
     text-align: center;
     font-size: 40px;
-    color:darkslateblue;
+    color:rgb(13, 5, 71);
 }
 input{
     font-family: 'ZCOOLXiaoWei-Regular.ttf';
     font-size: 30px;
-    color:darkslateblue;
+    color:rgb(13, 5, 71);
+    background-color: rgb(31, 117, 117);
 }
 </style>
