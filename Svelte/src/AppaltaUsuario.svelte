@@ -3,13 +3,14 @@
 	import Appentrada from "./Appentrada.svelte";
 	//import Appinicio from "./Appinicio.svelte";
 	import Avatar from "./Avatar.svelte";
-
+	
+	export var userId;
 	export var seccion;
 	var usuarios = [];
 	var listadoUsuarios = [];
 	var nick = "";
 	var nombre,dni, email, clave,nifCif,avatar;
-	export var userId;
+	
 	var actualizar;
 
 	$: actualizar;
@@ -59,33 +60,25 @@
 		<p>Nick:<input id="nick" type="text" bind:value={nick}></p>
 		<p>Contraseña:<input id="clave" type="password" bind:value={clave}></p>
 		<p>Avatar:<Avatar bind:nick={nick}/></p><!--lo asociamos a nick que es lo q va aparecer en el reso de ficheros-->	
-	</div>
 	<button on:click={enviar}>Enviar</button>	<!--con el nombre de la función es suficiente-->
-	<!--	
-	{#each actualizar as userId}
-			{userId.nick}+{userId.clave}; 
-		{/each}
-		<Appentrada bind:seccion={seccion} bind:userId={userId}/>
-		<!--Appinicio/-->
-
+	</div>
 </main>
 
 <style>
 
-p{
-	font-family: 'ZCOOLXiaoWei-Regular.ttf';
-	color: rgb(2, 6, 65);
+div{
+	font-family: 'Marmeland-Regular.ttf';
+	color: rgb(6, 12, 106);
 	font-size: 40px;
 	font-style: oblique;
-	text-align: center;
+	text-align: right;
+	float: left;
 }
 input{
-    font-family: 'ZCOOLXiaoWei-Regular.ttf';
-	border-radius: 50px;
-	border:0;
+    font-family: 'Marmeland-Regular.ttf';
 	margin-left: 10px;
 	color: rgb(2, 6, 65);
-	font-size: 40px;
+	font-size: 30px;
 	background-color: rgb(10, 243, 243);
 }
 </style>

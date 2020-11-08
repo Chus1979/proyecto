@@ -19,45 +19,31 @@
 </script>
 
 <main> 
-        <AppaltaUsuario  bind:userId={userId} bind:seccion={seccion}/>
-        <Login bind:userId={userId} bind:seccion={seccion}/>
-
-
-
-
-
-
-
-
-
-
-
-       <!-- <Mercado bind:userId = {userId}/>
-        <Altaproductos userId = {userId}/>
-        <ApplistadoProduc userId = {userId}/>-->
-    <!--
-        <nav>
-			<h3>Si eres nuevo recuerda inscribirte</h3>
-				<button on:click={()=>{setPage('AppaltaUsuario')}}>
-					Alta Usuario
-				</button>
-			<h3>Si ya nos conoces, pasa es tu casa</h3>
-				<button on:click={()=>{setPage('Appclientes')}}>
-					Clientes
-				</button>
-        </nav>
-        <div>
-        {#if pag === 'Appclientes'}
-            <Appclientes/>
-        {:else if pag === 'AppaltaUsuario'}
-
-        <AppaltaUsuario/>
-        {/if}				
+    <body class = "inicio">
+        <div class = "altus">
+            <AppaltaUsuario  bind:userId={userId} bind:seccion={seccion}/>
         </div>
-    -->
+        <div class = "login">
+            <Login bind:userId={userId} bind:seccion={seccion}/>
+        </div>
+    </body>  
             
 </main>
 
 <style>
-	
+body{
+    display: inline-block;
+}
+.inicio::after{
+    content: '';
+    display:block;
+    clear:both;
+}
+.altus{
+    float:left;
+}
+.login{
+    float:right;
+   
+}
 </style>

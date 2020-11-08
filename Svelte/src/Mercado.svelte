@@ -1,4 +1,5 @@
 <script>
+	import Appcarro from './Appcarro.svelte';
     import AppProductos from "./AppProductos.svelte";
     /**
     De momento no pongo nada en el index pq estoy usando la BD de produc. y ya está creada
@@ -7,6 +8,7 @@
     En el html pondré aspento de tabla para q sea más sencillo de ver para el usuario*/
     export  var userId;
     export var seccion;
+    export var carrito;
     var listadoProduc = [];
     
     async function getlistadoProduc(){
@@ -19,48 +21,17 @@
         seccion = "entrada";
     }
 </script>
+
 <main>
+    
     <p>{userId}</p>
     <button id="regresar" on:click={regresar}></button>
-    <table class="tablaMercado">
-        <thead>
-            <tr>
-                <th>Producto</th>
-                <th>Precio(€)</th>
-                <th>Unidades</th>
-                <th>Stock</th>
-                <th>Cantidad</th>
-            </tr>
-        </thead>
-        <tbody >
-             <AppProductos seccion={seccion} bind:userId={userId}/>
-        </tbody>
-    </table>
+    <div class="todo">
+       <AppProductos bind:carrito bind:seccion={seccion} bind:userId={userId}/>
+    </div>
+
 </main>
 
 <style>
-@font-face{
-    font-family: "ZCOOLXiaoWei-Regular.ttf";
-    src: url("../ZCOOL_XiaoWei/ZCOOLXiaoWei-Regular.ttf");
-}
-table.tablaMercado {
-    font-family: "ZCOOLXiaoWei-Regular.ttf";
-    background: rgba(2, 141, 2, 0.3);
-    width: auto;
-    height: auto;
-    text-align: center;
-}
-thead{
-    font-size: 25px;
-}
-button#regresar{
-    background-image:url(./iconos/arrow-go-back-fill.svg);
-    padding: 50px;
-    border-radius: 80%;
-    background-repeat:no-repeat;
-    height:70px;
-    width:70px;
-    background-position:center;
-    margin-left: 60%;
-}
+
 </style>

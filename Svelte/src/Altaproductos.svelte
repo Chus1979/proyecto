@@ -55,38 +55,23 @@
     </div>
 	<button on:click={enviar}>Enviar</button>
 	<p>Producto agregado: {resultado}</p>
-	<button class="regresar" on:click={regresar}></button>
+	<button id="regresar" on:click={regresar}></button>
 </main>
 
 <style>
-@font-face{
-	font-family: 'black_chancery';
-	src: url('../blac_chancery/BLKCHCRY.TTF')
-}
-p{
-	font-family: 'black_chancery';
-	color: rgb(48, 2, 2);
-	font-size: large;
-	font-style: oblique;
+#nuevoProducto{
+	font-family: 'ZCOOLXiaoWei-Regular.ttf';
+	color: rgb(57, 5, 82);
+	font-size: 35px;
 	text-align: center;
+	float: right;
 }
 input{
-    font-family: 'black_chancery';
+	font-size: 25px;
 	border-radius: 50px;
-	border-color: rgb(48, 2, 2);
-	margin-left: 10px;
-	color:chocolate;
-	background-color: rgb(158, 81, 52);
+	border-color: rgb(48, 2, 48);
+	color:rgb(193, 72, 233);
+	background-color: rgba(44, 2, 43, 0.693);
+	font-family: 'ZCOOLXiaoWei-Regular.ttf';
 }
-button.regresar{
-    background-image:url(./iconos/arrow-go-back-fill.svg);
-    padding: 50px;
-    border-radius: 80%;
-    background-repeat:no-repeat;
-    height:70px;
-    width:70px;
-    background-position:center;
-    margin-left: 40%;
-}
-
 </style>

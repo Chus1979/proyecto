@@ -13,21 +13,33 @@
     async function altaproduc () {
         seccion = "altaproduc";       
     };
+    async function inicio(){
+        seccion = "inicio";
+        userId = null;
+    }
 </script>
 
 <main>
 {userId}
+        <div class="botonentrada">
+        <button id = "inicio" on:click={inicio}>Inicio</button>
         <button id="mercado" on:click={mercado}>Mercado</button>
         <button id="altaproduc" on:click={altaproduc}>Alta Productos</button>
-
+        </div>
 </main>
 
 <style>
+div.botonentrada{
+    display: inline-flex;
+    margin-left: -400px;
+}
+#inicio{
+    float: left;
+}
 button#mercado{
-    margin-left: 40%;
+    margin-left:200px;
 }
 button#altaproduc{
-    margin-left: 60%;
+   margin-left: 300px;
 }
-
 </style>

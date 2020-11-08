@@ -1,24 +1,33 @@
 @font-face{
-    font-family: 'cream_cake';
-	src: url('../cream_cake/Cream Cake.ttf');
+    font-family: 'BalsamiqSans-Regular.ttf';
+	src: url('../BalsamiqSans-Regular.ttf');
 }
-body#principal{
+body.fondo{
+	background-image: url('./img/tablones.jpg');
+	background-size: 160%;
+	background-repeat: no-repeat;
+	position: absolute;
 	margin-left: 0px;
     margin-top: 0px;
     margin-right: 0px;
-    margin-bottom: 0px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
 }
-img{
-	background-image: url('./img/Fondo_pantalla.jpg');
-	background-size: 100%;
-	background-repeat: no-repeat;
-    background-position: center center;
-    background-color: transparent;
+.fondo:before{
+	content:'';
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity:0.2;
+	z-index: -1;
+
 }
 input{
-	font-family: 'Acme';
-	font-size: 50px;
-	padding: 0.4em;
+	font-family: 'Quicksand-Medium.ttf';
+	font-size: 15px;
+	padding: 10px;
 	margin: 0 0 0.5em 0;
 	border-radius: 50px;
 	color:rgb(48, 2, 2);
@@ -30,50 +39,119 @@ input:disabled {
 button:focus {
 	border-color: greenyellow;
 }
+@font-face{
+    font-family: 'Artifika-Regular.ttf';
+	src: url('./Artifika-Regular.ttf');
+}
 h1{
-	font-family: 'black_chancery';
+	font-family: 'Artifika-Regular.ttf';
     text-align: center;
-    color:rgb(6, 28, 84);
-    font-size: 80px;
+    color:rgb(9, 76, 247);
+	font-size: 150px;
     text-decoration: rgb(62, 62, 156);
-	text-shadow: 6px 6px 6px rgb(7, 87, 114);
+	text-shadow: 7px 7px 7px rgb(7, 87, 114);
+	position: static;
+}
+@font-face{
+    font-family: 'Gabriela-Regular.ttf';
+	src: url('../Gabriela-Regular.ttf');
 }
 h2{
 	text-align: center;
-    color:rgb(6, 28, 84);
-    font-family: 'black_chancery';
+    color:rgb(6, 172, 20);
+    font-family: 'Gabriela-Regular.ttf';
 	font-size: 60px;
-	text-decoration-line: underline;
-  	text-decoration-style: double;
-  	text-decoration-color: rgb(62, 62, 156);
+	text-decoration-color: rgb(59, 112, 72);
+	text-shadow: 6px 6px 6px rgb(24, 65, 33);
+	margin-bottom: 150px;
 }
 h3{
 	text-align: center;
-	color:rgb(6, 28, 84);
-    font-family: 'black_chancery';
-    font-size: 40px;
+	color:rgb(64, 79, 30);
+	text-shadow: 6px 6px 6px rgb(20, 146, 98);
+    font-family: 'Gabriela-Regular.ttf';
+    font-size: 50px;
 	text-underline-position: auto;
 	text-decoration-line: underline;
   	text-decoration-style: solid;
-  	text-decoration-color: rgb(62, 62, 156);
+  	text-decoration-color: rgb(109, 253, 6);
 }
 button {
     text-align: center;
     font-style: oblique;
-    font-family:'cream_cake';
+    font-family:'Quicksand-Medium.ttf';
     border-radius: 80%;
     background: lightseagreen;
     padding: 10px;
-    font-size: 40px;
+    font-size: 50px;
 	color: rgb(4, 89, 47);
-	margin-left: 50%;
+	float: left;
+	margin-left: 40%;
 }
 button:hover {
 	padding: 15px;
 	background: rgb(114, 114, 240);
 }
-input#cantidad{
-	font-size: 30px;
+button#regresar{
+    background-image:url('./img/arrow-go-back-fill.svg');
+    padding: 50px;
+    border-radius: 80%;
+    background-repeat:no-repeat;
+    height:70px;
+    width:70px;
+    background-position:center;
+	margin-left: 60%;
+	font-size: 50px;
+}
+@font-face{
+    font-family: "ZCOOLXiaoWei-Regular.ttf";
+    src: url("../ZCOOL_XiaoWei/ZCOOLXiaoWei-Regular.ttf");
+}   
+table.tablaMercado {
+    font-family: "ZCOOLXiaoWei-Regular.ttf";
+    background: rgba(2, 141, 2, 0.3);
+    width: auto;
+    height: auto;
+    text-align: center;
+	float:left;
+	position: static;
+} 
+thead{
+	font-family:'Gabriela-Regular.ttf';
+	font-size: 70px;
+	color:rgb(14, 14, 84);
+}
+td{
+    font-size: 35px;
+}
+
+div.carro{
+	margin-right: 0px;
+	margin-left: 105%;
+	position: absolute;
+	z-index: +1;
+}
+table.carro{
+    font-family: "ZCOOLXiaoWei-Regular.ttf";
+    background: rgba(248, 102, 102, 0.803);
+    border: 1px solid rgba(120, 237, 4, 0.522);
+    width: 100%;
+    height: 100%;
 	text-align: center;
-	font-family: 'cream_cake';
+}
+thead{
+	font-family:'Gabriela-Regular.ttf';
+    font-size: 35px;
+}
+tbody{
+    font-size: 25px;
+}
+td.total{
+    font-size: 35px;
+    color:darkblue;
+    border-top: 3px solid darkorchid;
+}
+@font-face{
+    font-family:'Marmelad-Regular.ttf';
+    src: url('../Marmelad-Regular.ttf');
 }

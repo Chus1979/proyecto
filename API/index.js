@@ -106,11 +106,11 @@ app.get('/login/', async (req, res)=>{
 
 
 app.get('/listadoUsuarios/', async (req,res)=>{
-	var usuario = await collection.find().toArray();
-	var usuariosJson = JSON.stringify(usuario);
-        res.send(usuariosJson);	
-        //return collection;	
-})
+    var nickescrito = req.query.nickescrito;
+	var usuario = await collection.findOne({nick: nickescrito});
+    var json = JSON.stringify(usuario);
+    res.send(json);
+});
 
 /*
 app.get('/eliminarCli/', async(req, res)=>{

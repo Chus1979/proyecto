@@ -7,8 +7,10 @@
     */
     
     export var nick;
+
     var avatarURL;
     $: avatarURL = `https://avatars.dicebear.com/api/initials/${nick}.svg?options[backgroundcolor]=#0000ff)`;
+
 </script>
 
 <main>
@@ -16,9 +18,11 @@
 </main>
 
 <style>
+
 img {
     color: #7474f0;
     width: 200px;
     height: 200px;
     }
+
 </style>
