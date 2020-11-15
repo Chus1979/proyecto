@@ -7,10 +7,11 @@
     import Appentrada from './Appentrada.svelte';
     import Mercado from './Mercado.svelte';
     import Altaproductos from './Altaproductos.svelte';
+import Terminar from './Terminar.svelte';
 
     var seccion = "bienvenida";
     var userId = null;
-    var carrito = []
+    var carrito = [];
         
 </script>
 
@@ -36,6 +37,9 @@
                 {/if}
                 {#if seccion === "comprar"}
                 <AppCompra bind:carrito bind:seccion={seccion} bind:userId={userId}/>
+                {/if}
+                {#if seccion==="confirmar"}
+                <Terminar bind:seccion={seccion} bind:userId={userId}/>
                 {/if}
             {:else}
                 {#if seccion === "bienvenida"}

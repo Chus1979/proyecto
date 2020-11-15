@@ -1,7 +1,5 @@
 <script>
-    //import AppCompra from './AppCompra.svelte';
-    //import Appentrada from './Appentrada.svelte';
-
+    
     export var carrito;
     export var userId;
     export var seccion;

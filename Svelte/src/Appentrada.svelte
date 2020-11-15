@@ -2,10 +2,14 @@
     /*Pag intermedia para acceder al mercado o a ampliar la BD de productos*/
 	import Mercado from './Mercado.svelte';
     import Altaproductos from './Altaproductos.svelte';
+import Avatar from './Avatar.svelte';
     
     export var seccion;
     export var userId;
+    export var nick;
+    var avatarURL;
 
+    $: avatarURL = `https://avatars.dicebear.com/api/initials/${nick}.svg?options[backgroundcolor]=#0000ff)`;
 
     async function mercado () {
         seccion = "mercado";       
@@ -20,7 +24,11 @@
 </script>
 
 <main>
-{userId}
+    <head>
+        <Avatar bind:nick = {nick}/>
+        {userId}
+    </head>
+
         <div class="botonentrada">
         <button id = "inicio" on:click={inicio}>Inicio</button>
         <button id="mercado" on:click={mercado}>Mercado</button>

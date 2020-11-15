@@ -2,6 +2,10 @@
     font-family: 'BalsamiqSans-Regular.ttf';
 	src: url('../BalsamiqSans-Regular.ttf');
 }
+@font-face{
+    font-family:'Marmelad-Regular.ttf';
+    src: url('../Marmelad-Regular.ttf');
+}
 body.fondo{
 	background-image: url('./img/tablones.jpg');
 	background-size: 160%;
@@ -51,6 +55,10 @@ h1{
     text-decoration: rgb(62, 62, 156);
 	text-shadow: 7px 7px 7px rgb(7, 87, 114);
 	position: static;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 @font-face{
     font-family: 'Gabriela-Regular.ttf';
@@ -150,8 +158,4 @@ td.total{
     font-size: 35px;
     color:darkblue;
     border-top: 3px solid darkorchid;
-}
-@font-face{
-    font-family:'Marmelad-Regular.ttf';
-    src: url('../Marmelad-Regular.ttf');
 }

@@ -8,8 +8,8 @@
 
     $:total= Total(carrito);
 
-    async function terminar(){
-        seccion = "terminar";
+    async function confirmar(){
+        seccion = "confirmar";
     }
     function Total(x){ 
         var total = 0;
@@ -52,7 +52,7 @@
     </table>
     </div>
     <p>{userId}</p>
-    <button id="terminar"on:click={terminar}>Terminar</button>
+    <button id="confirmar"on:click={confirmar}>Siguiente</button>
     <button id="empezar" on:click={empezar}>Salir</button>
 </main>
 
@@ -73,7 +73,7 @@ p{
      text-align: center;
      color:rgb(93, 9, 135);
 }
-#terminar{
+#confirmar{
     float:left;
 }
 #empezar{

@@ -1,11 +1,6 @@
 <script>
     import AppaltaUsuario from './AppaltaUsuario.svelte';
     import Login from './Login.svelte';
-    //import ListaUsuarios from './ListaUsuarios.svelte';
-   // import Appentrada from './Appentrada.svelte';
-	//import Mercado from './Mercado.svelte';
-    //import Altaproductos from './Altaproductos.svelte';
-    //import ApplistadoProduc from './ApplistadoProduc.svelte';
     
     export var seccion; //exportamos seccion para poder ir de un fichero a otro y el bind, lo pusimos en el anterior
 
@@ -33,6 +28,10 @@
 <style>
 body{
     display: inline-block;
+    top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 .inicio::after{
     content: '';
