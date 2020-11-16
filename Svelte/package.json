@@ -16,6 +16,8 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "@dicebear/avatars": "^4.4.0",
+    "@dicebear/avatars-avataaars-sprites": "^4.4.0",
     "cors": "^2.8.5",
     "mongodb": "^3.6.2",
     "sirv-cli": "^1.0.0"

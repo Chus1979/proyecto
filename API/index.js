@@ -52,21 +52,21 @@ async function conectadb () {
 	collProduc = await conexionMongo.db().collection('productos');
 }
 
-async function autenticate(telefono,pwd) {
+async function autenticate(telefono,clave) {
     /**
      * Modifica esta función según tus necesidades.
      * Comprueba si las credenciales son correctas y retorna 'true' o 'false' según corresponda.
      */
     
     const hash = crypto.createHash('sha256');
-    hash.update(pwd);
+    hash.update(clave);
     var hashString = hash.digest('base64');
     var filtro = {
             telefono: telefono,
             clave: hashString,
     };
     var usuario = await collection.findOne(filtro);
-    if ( usuario.hasOwnProperty(telefono) && usuario[telefono] === pwd) {
+    if ( usuario.hasOwnProperty(telefono) && usuario[telefono] === clave) {
         console.log('Todo correcto, puede continuar');
         return true;
     } else {
@@ -104,63 +104,85 @@ conectadb();
   * ####################################
   */
 app.post('/nuevoUsuario/', mimeParser.none(), async (req,res)=>{
-	var nuevoUsuario = req.body.usuario; 
-	var pwd = req.body.clave;   //para q coincida con el input y el data.append
-	const hash = crypto.createHash('sha256');
-	hash.update(pwd);
-	var hashString = hash.digest('base64');
-	/*var file = {
-		folder: req.file.destination,
-		name: req.file.filename,
-		oldName: req.file.originalname,
-		mime: req.file.mimetype,
-	}*/
-	var documento = {
-        nombre:req.body.nombre,      
-        dni:req.body.dni,
-        nifCif:req.body.nifCif,
-        //direccion:req.query.direccion,
-        email:req.body.email,
-        telefono:req.body.telefono,
-        nick:req.body.nick,
-        clave: hashString,
-            //FormaPago:req.query.FormaPago,
-           // HistorialPedidos:req.query.HistorialPedidos,
-            //Carro:req.query.Carro,	
-        avatar:req.body.avatar,
-            //file:req.body.file,
-        };
-        //var result = await collFiles.insertOne(file);
-        var mongoRes = await collection.insertOne(documento);
-        //var usuario = await collection.find().toArray();
-        //var json = JSON.stringify(usuario);
-        //console.log(file);
-        //res.send(result.insertedId);
-        console.log(mongoRes.ops[0]._id);
-        res.send(mongoRes.ops[0]._id);
-    });
-    app.post('/login/',mimeParser.none(), async (req, res)=>{
+    try{
+            var nuevoUsuario = req.body.usuario; 
+            var clave = req.body.clave;   //para q coincida con el input y el data.append
+            const hash = crypto.createHash('sha256');
+            hash.update(clave);
+            var hashString = hash.digest('base64');
+            /*var file = {
+                folder: req.file.destination,
+                name: req.file.filename,
+                oldName: req.file.originalname,
+                mime: req.file.mimetype,
+            }*/
+            var documento = {
+                nombre:req.body.nombre,      
+                dni:req.body.dni,
+                nifCif:req.body.nifCif,
+                //direccion:req.query.direccion,
+                email:req.body.email,
+                telefono:req.body.telefono,
+                nick:req.body.nick,
+                clave: hashString,
+                    //FormaPago:req.query.FormaPago,
+                // HistorialPedidos:req.query.HistorialPedidos,
+                    //Carro:req.query.Carro,	
+                avatar:req.body.avatar,
+                    //file:req.body.file,
+                };
+               
+            var UserExistsAtMongo = await collection.findOne(
+                {$or:[
+                    {nombre : req.body.nombre},
+                    {nick : req.body.nick}, 
+                    {telefono : req.body.telefono},
+                    {email : req.body.email},
+                ]}
+                );
+
+            if(UserExistsAtMongo){
+                console.log('Denegada la creacion del usuario');
+                res.status(418).send(err);
+            } else {
+                var mongoRes = await collection.insertOne(documento);
+               // collection.insertOne(documento)
+                res.send('Ok')
+                console.log('Usuario creado correctamente')
+                    //var result = await collFiles.insertOne(file);
+                    //var usuario = await collection.find().toArray();
+                    //var json = JSON.stringify(usuario);
+                    //console.log(file);
+                    //res.send(result.insertedId);
+                    //console.log(mongoRes.ops[0]._id);
+                    //res.send(mongoRes.ops[0]._id);
+            };
+    } catch (err) {
+        res.status(418).send(err);
+    };
+})
+app.post('/login/',mimeParser.none(), async (req, res)=>{
          /**
      * Recibe los datos del formulario de login.
      * Comprueba la validez de los datos.
      * Si los datos son validos, marca la sesión como autenticada.
      */
     var telefono = req.body.telefono;
-    var pwd = req.body.clave;
-    var validates = autenticate(telefono, pwd);
+    var clave = req.body.clave;
+    var validates = autenticate(telefono, clave);
     req.session.authenticated = validates;
     res.send(JSON.stringify(validates));
        
-    });
+});
     
     app.get('/listadoUsuarios/', async (req,res)=>{
-        var nombre = req.query.nombre;
-        var telefono = req.query.telefono;
-        var direccion = req.query.direccion;
-        var email = req.query.email;
+        var nombre = req.body.nombre;
+        var telefono = req.body.telefono;
+        //var direccion = req.body.direccion;
+        var email = req.body.email;
         var doc = {
             nombre:nombre,
-            direccion:direccion,
+            //direccion:direccion,
             email:email,
             telefono:telefono,
         };

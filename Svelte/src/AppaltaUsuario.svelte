@@ -1,22 +1,23 @@
 <script>
-	//import ListaUsuarios from './ListaUsuarios.svelte';
-	//import Appentrada from "./Appentrada.svelte";
+
 	//import Appinicio from "./Appinicio.svelte";
-	import Avatar from "./Avatar.svelte";
+	//import Avatar from "./Avatar.svelte";
 	
 	export var userId;
 	export var seccion;
 	var usuarios = [];
 	var listadoUsuarios = [];
 	var nick = "";
-	var nombre,dni, email, clave,telefono,avatar;
+	var nombre,dni, email, clave,telefono;
+	//avatar;
 	
 	var actualizar;
 
 	$: actualizar;
 
 	async function borrar(){	//para q borre todos los datos despues de darle a enviar
-		avatar=nombre=dni=email=nick=clave=telefono='';
+		//avatar=
+		nombre=dni=email=nick=clave=telefono='';
 	};
 
     async function enviar() {
@@ -28,7 +29,7 @@
 		data.append('email',email);
 		data.append('nick',nick);
 		data.append('clave',clave);
-		data.append('avatar',avatar)
+		//data.append('avatar',avatar)
 		var requestOptions = {
 			method: 'POST',
 			body: data,
@@ -60,7 +61,7 @@
 		<p>D.N.I./N.I.F/C.I.F.:<input id="dni" type="text" bind:value={dni} required></p>
 		<p>Telefono:<input id="nifCif" type="text" bind:value={telefono} required></p>
 		<p>Email:<input id="email" type="email" bind:value={email} required></p>
-		<p>Nick:<input id="nick" type="text" bind:value={nick}></p>
+		<p>Nick:<input id="nick" type="text" bind:value={nick} required></p>
 		<p>Contraseña:<input id="clave" type="password" bind:value={clave} required></p>
 		<!--p>Avatar:<Avatar bind:nick={nick}/></p><!--lo asociamos a nick que es lo q va aparecer en el reso de ficheros-->	
 	<button on:click={enviar}>Enviar</button><!--con el nombre de la función es suficiente-->
@@ -70,6 +71,10 @@
 
 <style>
 
+@font-face{
+	font-family: "Marmelad-Regular.ttf";
+	src: url( 'http://localhost:5000/Marmelad-Regular.ttf');
+}
 div{
 	font-family: 'Marmeland-Regular.ttf';
 	color: rgb(6, 12, 106);

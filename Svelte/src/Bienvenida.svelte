@@ -16,6 +16,10 @@
 </main>
 
 <style>
+@font-face{
+	font-family: "Marmelad-Regular.ttf";
+	src: url( 'http://localhost:5000/Marmelad-Regular.ttf');
+}
 body{
     top:0;
 	bottom: 0;

@@ -1,5 +1,5 @@
 <script>
-	import Avatar from "./Avatar.svelte";
+	//import Avatar from "./Avatar.svelte";
 
     export var seccion; 
     export var userId;
@@ -20,7 +20,8 @@
         var url = `http://localhost:3000/login/?nick=${telefono}&clave=${clave}`;
         var data = new FormData();//los data.append deben ser= a los inputs
 		data.append('telefono',telefono);
-		data.append('clave',clave);
+        data.append('clave',clave);
+        console.log(data);
         var requestOptions = {
 				method: 'POST',
 				body: data,
@@ -55,6 +56,7 @@
 </main>
 
 <style>
+
 div{
     font-family: 'Marmelad-Regular.ttf';
     text-align: right;

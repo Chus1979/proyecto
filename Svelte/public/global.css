@@ -2,10 +2,7 @@
     font-family: 'BalsamiqSans-Regular.ttf';
 	src: url('../BalsamiqSans-Regular.ttf');
 }
-@font-face{
-    font-family:'Marmelad-Regular.ttf';
-    src: url('../Marmelad-Regular.ttf');
-}
+
 body.fondo{
 	background-image: url('./img/tablones.jpg');
 	background-size: 160%;
