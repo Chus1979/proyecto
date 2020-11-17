@@ -25,7 +25,7 @@
         var resp = await fetch(getLoginURL);
         userId = await resp.json();
         //getlistadoUsuarios();
-            if (userId.nick===userId){
+            if (userId!=="false"){
                 seccion = "entrada";
             }else{
                 alert('Algo ha salido mal. Vuelve a intentarlo.');
