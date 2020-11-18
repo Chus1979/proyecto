@@ -1,5 +1,5 @@
 <script>
-	import Appcarro from './Appcarro.svelte';
+	//import Appcarro from './Appcarro.svelte';
     import AppProductos from "./AppProductos.svelte";
     /**
     De momento no pongo nada en el index pq estoy usando la BD de produc. y ya está creada

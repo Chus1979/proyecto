@@ -1,11 +1,12 @@
 <script>
     /*Pag intermedia para acceder al mercado o a ampliar la BD de productos*/
-	import Mercado from './Mercado.svelte';
-    import Altaproductos from './Altaproductos.svelte';
+	//import Mercado from './Mercado.svelte';
+   // import Altaproductos from './Altaproductos.svelte';
     
     export var seccion;
     export var userId;
-
+    export var telefono;
+    
 
     async function mercado () {
         seccion = "mercado";       
@@ -29,6 +30,7 @@
 </main>
 
 <style>
+
 div.botonentrada{
     display: inline-flex;
     margin-left: -400px;

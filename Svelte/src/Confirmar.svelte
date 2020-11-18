@@ -6,10 +6,11 @@
     export var total;
     export var seccion;
 
+    $:seccion = "comprar";
     $:total= Total(carrito);
 
-    async function confirmar(){
-        seccion = "confirmar";
+    async function siguiente(){
+        seccion = "terminar";
     }
     function Total(x){ 
         var total = 0;
@@ -52,32 +53,7 @@
     </table>
     </div>
     <p>{userId}</p>
-    <button id="confirmar"on:click={confirmar}>Siguiente</button>
-    <button id="empezar" on:click={empezar}>Salir</button>
+    <button id="siguiente"on:click={siguiente}>Terminar</button>
+         <Terminar bind:carrito bind:seccion={seccion} bind:userId={userId}/>
+    <button id="regresar" on:click={empezar}>Inicio</button>
 </main>
-
-<style>
-
-div{
-    text-align:center;
-    background-color: rgba(109, 109, 172, 0.638);
-    float:inline-end;
-}
-table{
-        font-family: 'ZCOOLXiaoWei-Regular.ttf';
-        color: rgb(97, 29, 119);
-        font-size: 25px;
-    }
-p{
-     font-family: 'Balsamiq-Regular.ttf';
-     font-size: 35px;
-     text-align: center;
-     color:rgb(93, 9, 135);
-}
-#confirmar{
-    float:left;
-}
-#empezar{
-    margin-left: 200px;
-}
-</style>

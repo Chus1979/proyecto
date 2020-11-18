@@ -2,6 +2,10 @@
     font-family: 'BalsamiqSans-Regular.ttf';
 	src: url('../BalsamiqSans-Regular.ttf');
 }
+@font-face{
+    font-family: 'Ruluko-Regular.ttf';
+    src:url('../Ruluko-Regular.ttf')
+}
 body.fondo{
 	background-image: url('./img/tablones.jpg');
 	background-size: 160%;
@@ -150,8 +154,4 @@ td.total{
     font-size: 35px;
     color:darkblue;
     border-top: 3px solid darkorchid;
-}
-@font-face{
-    font-family:'Marmelad-Regular.ttf';
-    src: url('../Marmelad-Regular.ttf');
 }

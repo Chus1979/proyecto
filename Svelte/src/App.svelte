@@ -21,30 +21,36 @@
             <meta name="viewport" content="width=device-width">
         </head>
         <body>
-        <h1>MiMercado.es</h1>
-            <h2>Del productor a tu Casa</h2>  
-            
-            {#if userId}    
-                {#if seccion === "entrada"}
-                <Appentrada bind:seccion={seccion} bind:userId={userId}/>
+            <h1>MiMercado.es</h1>
+                <h2>Del productor a tu Casa</h2>  
+                
+                {#if userId}    
+                    {#if seccion === "entrada"}
+                    <Appentrada bind:seccion={seccion} bind:userId={userId}/>
+                    {/if}
+                    {#if seccion === "altaproduc"}
+                    <Altaproductos bind:seccion={seccion} bind:userId={userId}/>
+                    {/if}
+                    {#if seccion === "mercado"}
+                    <Mercado bind:carrito bind:seccion={seccion} bind:userId={userId}/>
+                    {/if}
+                    {#if seccion === "comprar"}
+                    <AppCompra bind:carrito bind:seccion={seccion} bind:userId={userId}/>
+                    {/if}
+                    {#if seccion === "confirmar"}
+                    <Confirmar bind:carrito bind:seccion={seccion} bind:userId={userId}/>
+                    {/if}
+                    {#if seccion === "terminar"}
+                    <Terminar bind:carrito bind:seccion={seccion} bind:userId={userId}/>
+                    {/if}
+                {:else}
+                    {#if seccion === "bienvenida"}
+                    <Bienvenida bind:seccion={seccion}/>
+                    {/if}
+                    {#if seccion === "inicio"}
+                    <Appinicio bind:userId={userId} bind:seccion={seccion}/>
+                    {/if}
                 {/if}
-                {#if seccion === "altaproduc"}
-                <Altaproductos bind:seccion={seccion} bind:userId={userId}/>
-                {/if}
-                {#if seccion === "mercado"}
-                <Mercado bind:carrito bind:seccion={seccion} bind:userId={userId}/>
-                {/if}
-                {#if seccion === "comprar"}
-                <AppCompra bind:carrito bind:seccion={seccion} bind:userId={userId}/>
-                {/if}
-            {:else}
-                {#if seccion === "bienvenida"}
-                <Bienvenida bind:seccion={seccion}/>
-                {/if}
-                {#if seccion === "inicio"}
-                <Appinicio bind:userId={userId} bind:seccion={seccion}/>
-                {/if}
-            {/if}
         </body>
     </div>
 </main>

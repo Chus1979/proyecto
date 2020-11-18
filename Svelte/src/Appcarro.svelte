@@ -50,20 +50,21 @@
             </tr>
         </thead>
         <tbody>
-        {#each carrito as carro, idx}
-            <tr>
-                <td>{carro.producto}</td>
-                <td><input id="cantidad" type="number" bind:value={carro.cantidad} on:click={()=>{gastosProduc(idx)}}>
-                    <button class = "borrar" on:click={()=>{borrar(idx)}}>Borrar</button>
-                <td>
-                    {carro.subTotal}€
-                </td>
-            </tr>
-        {/each}
-            <tr>
-                <td class="total" colspan={2}>Total Compra:</td>
-                <td>{total}€</td>   <!--ponemos la var q es lo q cambia-->
-            </tr>
+                
+            {#each carrito as carro, idx}
+                <tr>
+                    <td>{carro.producto}</td>
+                    <td><input id="cantidad" type="number" bind:value={carro.cantidad} on:click={()=>{gastosProduc(idx)}}>
+                        <button class = "borrar" on:click={()=>{borrar(idx)}}>Borrar</button>
+                    <td>
+                        {carro.subTotal}€
+                    </td>
+                </tr>
+            {/each}
+                <tr>
+                    <td class="total" colspan={2}>Total Compra:</td>
+                    <td>{total}€</td>   <!--ponemos la var q es lo q cambia-->
+                </tr>
         </tbody>
     </table>
 <div class="botones">
