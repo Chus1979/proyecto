@@ -1,4 +1,7 @@
 <script>
+import { dataset_dev } from "svelte/internal";
+
+
 
 	//import AppaltaUsuario from './AppaltaUsuario.svelte';
     //import Appentrada from "./Appentrada.svelte";
@@ -9,6 +12,7 @@
     export var userId;
     var telefono;
     var clave;
+    //var adelante;
     //var avatarURL;
 
     //$: avatarURL = `https://avatars.dicebear.com/api/avataaars/${userId}.svg?options[backgroundcolor]=#0000ff)`;
@@ -20,9 +24,17 @@
         clave=telefono=null; 
     }
 
-    async function getLogin(){
-        var getLoginURL = `http://localhost:3000/login/?telefono=${telefono}&clave=${clave}`;
-        var resp = await fetch(getLoginURL);
+    async function Login(){
+        //var LoginURL = `http://localhost:3000/login/?telefono=${telefono}&clave=${clave}`;
+        var LoginURL = 'http://localhost:3000/login/';
+        var data = new FormData();
+        data.append('telefono',telefono);
+        data.append('clave',clave);
+        var requestOptions = {
+            method: 'POST',
+            body: data,
+        }
+        var resp = await fetch(LoginURL,requestOptions);
         userId = await resp.json();
         //getlistadoUsuarios();
             if (userId!=="false"){
@@ -54,7 +66,7 @@
             <p>Telefono.- <input id="telefono" type="text" placeholder="Completa este campos" bind:value={telefono} required></p><br>
             <p>Clave.- <input id="clave" type="password" placeholder="Escribe tu clave para poder acceder" bind:value={clave} required></p>
             <!--p>Avatar:<Avatar bind:nick={telefono}/></p-->
-    <button id="enlogin" on:click= {getLogin}>Enviar</button>
+    <button id="enlogin" on:click= {Login}>Enviar</button>
     <button id = "regresar" on:click={empezar}></button>
     </div>
 </main>

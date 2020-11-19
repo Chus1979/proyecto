@@ -9,13 +9,14 @@
     export var nick;
 
     var avatarURL;
-    $: avatarURL = `https://avatars.dicebear.com/api/initials/${nick}.svg?options[backgroundcolor]=#0000ff)`;
+    
+    $: avatarURL = `https://avatars.dicebear.com/api/avataaars/${nick}.svg?options[backgroundcolor]=#0000ff)`;
 
 </script>
 
-<main>
-    <img src={avatarURL} alt= "iniciales del usuario">
-</main>
+<head>
+    <img src={avatarURL} alt= "Avatares aleatorios">
+</head>
 
 <style>
 

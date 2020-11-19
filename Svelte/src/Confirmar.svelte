@@ -1,17 +1,20 @@
 <script>
     //import Appcarro from './Appcarro.svelte';
+    import Avatar from './Avatar.svelte';
     
     export var userId;
     export var carrito;
     export var total;
     export var seccion;
+    export var nick;
 
-    $:seccion = "comprar";
+    $:seccion = "confirmar";
+
     $:total= Total(carrito);
 
     async function siguiente(){
         seccion = "terminar";
-    }
+    };
     function Total(x){ 
         var total = 0;
         carrito.forEach(producto => {       //Creamos var total para q el svelte se actualice
@@ -27,6 +30,9 @@
 </script>
 
 <main>
+    <head>
+        <Avatar bind:nick={nick}/>
+    </head>
     <div class="liscompra">
     <p>Lista de la compra</p>
     <table>
@@ -54,6 +60,5 @@
     </div>
     <p>{userId}</p>
     <button id="siguiente"on:click={siguiente}>Terminar</button>
-         <Terminar bind:carrito bind:seccion={seccion} bind:userId={userId}/>
     <button id="regresar" on:click={empezar}>Inicio</button>
 </main>

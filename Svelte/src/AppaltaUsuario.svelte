@@ -2,7 +2,7 @@
 	//import ListaUsuarios from './ListaUsuarios.svelte';
 	//import Appentrada from "./Appentrada.svelte";
 	//import Appinicio from "./Appinicio.svelte";
-	import Avatar from "./Avatar.svelte";
+	//import Avatar from "./Avatar.svelte";
 	
 	export var userId;
 	export var seccion;
@@ -10,7 +10,7 @@
 	var listadoUsuarios = [];
 	var nick = "";
 	var nombre,dni, email, clave;
-	var telefono = "";
+	var telefono;
 	
 	var actualizar;
 
@@ -40,11 +40,13 @@
 			console.log(actualizar);
 			userId = actualizar;
 			seccion = "entrada";
+			borrar();
 		} catch (err) {
 			console.log(`********`);
-			window.alert(`Algo salio mal: ${err.message}`)
+			window.alert(`Algo salio mal: ${err.message}`);
+			borrar();
 		}
-		borrar();
+		
 	};
 	async function regresar(){
 		seccion = "inicio";

@@ -1,11 +1,13 @@
 <script>
+
     /*Pag intermedia para acceder al mercado o a ampliar la BD de productos*/
-	//import Mercado from './Mercado.svelte';
-   // import Altaproductos from './Altaproductos.svelte';
-    
+   // import AppaltaUsuario from './Mercado.svelte';
+   // import Login from './Login.svelte'
+    import Avatar from "./Avatar.svelte";
+
     export var seccion;
     export var userId;
-    export var telefono;
+    export var nick;
     
 
     async function mercado () {
@@ -21,7 +23,9 @@
 </script>
 
 <main>
-{userId}
+<head>
+    <Avatar bind:nick={nick}/>
+</head>
         <div class="botonentrada">
         <button id = "inicio" on:click={inicio}>Inicio</button>
         <button id="mercado" on:click={mercado}>Mercado</button>

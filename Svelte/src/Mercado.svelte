@@ -1,5 +1,6 @@
 <script>
-	//import Appcarro from './Appcarro.svelte';
+	import Avatar from './Avatar.svelte';
+    //import Appcarro from './Appcarro.svelte';
     import AppProductos from "./AppProductos.svelte";
     /**
     De momento no pongo nada en el index pq estoy usando la BD de produc. y ya está creada
@@ -9,6 +10,7 @@
     export  var userId;
     export var seccion;
     export var carrito;
+    export var nick;
     var listadoProduc = [];
     
     async function getlistadoProduc(){
@@ -23,7 +25,9 @@
 </script>
 
 <main>
-    
+    <head>
+        <Avatar bind:nick={nick}/>
+    </head>
     <p>{userId}</p>
     <button id="regresar" on:click={regresar}></button>
     <div class="todo">

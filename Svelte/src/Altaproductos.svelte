@@ -1,6 +1,8 @@
 <script>
+	import Avatar from './Avatar.svelte';
 	export var userId;
 	export var seccion;
+	export var nick;
 
 	var resultado;
 	var producto, precio, unidades, stock;
@@ -34,17 +36,19 @@
 		} catch (err) {
 			console.log(`********`);
 			window.alert(`Algo salio mal: ${err.message}`)
-		}
+		};
 		borrar();
-	}
+	};
 	async function regresar(){
 		seccion = "entrada";
-	}
+	};
 </script>
 
 <main>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-
+<head>
+	<Avatar bind:nick/>
+</head>
 	<div id="nuevoProducto">
 		<h2>Añadir Productos.-</h2>
 		<p>Productos:<input id="producto" type="text" bind:value={producto}></p>

@@ -1,10 +1,12 @@
 <script>
+	import Avatar from './Avatar.svelte';
     //import Appcarro from './Appcarro.svelte';
     
     export var userId;
     export var carrito;
     export var total;
     export var seccion;
+    export var nick;
 
     $:total= Total(carrito);
 
@@ -26,6 +28,9 @@
 </script>
 
 <main>
+    <head>
+        <Avatar bind:nick={nick}/>
+    </head>
     <div class="liscompra">
     <p>Lista de la compra</p>
     <table>

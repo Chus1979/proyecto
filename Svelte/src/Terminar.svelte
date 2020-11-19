@@ -1,10 +1,12 @@
 <script>
+	import Avatar from './Avatar.svelte';
     import ContactCard from './ContactCard.svelte';
 
-export var seccion;
-export var userId;
+    export var seccion;
+    export var userId;
+    export var nick;
 
-$:seccion = "terminar";
+$:seccion = "confirmar";
 
 async function empezar(){
         userId = null;
@@ -12,11 +14,14 @@ async function empezar(){
  };
 async function mandarAviso(){
         seccion = "mandarAviso";
-}
+};
    
 </script>
 
 <main>
+    <head>
+        <Avatar bind:nick={nick}/>
+    </head>
     <h2>Termina de rellenar este formulario.-</h2>
         <ContactCard>
             <span slot="nombre">
@@ -32,7 +37,7 @@ async function mandarAviso(){
                 {userId.email}
             </span>
         </ContactCard>
-    <button id="mandarAviso" on:click={mandarAviso}>Listo su compra ha sido realizada</button>
+    <button id="mandarAviso" on:click={mandarAviso}>Terminar</button>
     <button id="empezar" on:click={empezar}>Inicio</button>
 </main>
 <style>

@@ -3,15 +3,12 @@ const app = express();
 // https://www.npmjs.com/package/express-session
 
 const multer  = require('multer');
-const session = require('express-session');
-const mimeParser = multer();
 const appPort = 3000;
 const cors = require('cors');
 app.use(cors());
-app.use(session(sessionOptions));
 
-const bodyParser = require('body-parser');
-const jsonParser = bodyParser.json();
+//const bodyParser = require('body-parser');
+//const jsonParser = bodyParser.json();
 
 const MongoClient = require('mongodb').MongoClient;
 /** Para usar _id de MongoDB */
@@ -21,6 +18,7 @@ const crypto = require ('crypto');
 const mongoURL = 'mongodb://localhost:27017/cliente_proveedor';
 
 const {ClientRequest} = require('http');
+
 const mimeParser = multer({
         dest: './altaUsuario/',
         limits: {
@@ -33,13 +31,29 @@ const mimeParser = multer({
  * Puedes hacerlo ejecutando el siguiente comando en el terminal se Linux:
  *      $ openssl rand -base64 33
  */
+const session = require('express-session');
 const secret = "s4VbV3z4hjlTApzzQYalJRpPUBbacSUFZ3sTZ4MS7aqa"
 const sessionOptions = {
     secret: secret,
     resave: true,
     saveUninitialized: false,
     cookie: {},
-}
+};
+app.use(session(sessionOptions));
+
+
+var collection;
+//var collClien;
+//var collProv;
+var collProduc;
+async function conectadb () {
+	var conexionMongo = await MongoClient.connect(mongoURL);
+	collection = await conexionMongo.db().collection('usuario');
+	//collProv = await client.db().collection('proveedores');
+	collProduc = await conexionMongo.db().collection('productos');
+};
+conectadb();
+
 /**
  * Por simplicidad, empleamos un objeto con los datos de autenticación.
  * Normalmente esta información estará en una base de datos o algún servicio de autenticación.
@@ -72,23 +86,12 @@ function autenticatedSession (req,res,next) {
         next();
     }
 }
-var collection;
-//var collClien;
-//var collProv;
-var collProduc;
-async function conectadb () {
-	var conexionMongo = await MongoClient.connect(mongoURL);
-	collection = await conexionMongo.db().collection('usuario');
-	//collProv = await client.db().collection('proveedores');
-	collProduc = await conexionMongo.db().collection('productos');
-}
-conectadb();
-
+/*
 app.post('/logout/',autenticatedSession,(req,res)=>{
     console.log('Cerrando sesión.')
     req.session.authenticated = false;
     res.sendStatus(200);
-});
+});*/
 app.get( '/private/', autenticatedSession, function( req, res ) {
     /**
      * Si el middleware de autenticación lo permite muestra el área privada.
@@ -126,16 +129,13 @@ app.post('/nuevoUsuario/', mimeParser.none(), async (req,res)=>{
 	}*/
 	var documento = {
         nombre:req.body.nombre,
-        //apellido1:req.query.apellido1,
-        //apellido2:req.query.apellido2,
         dni:req.body.dni,
         //nifCif:req.body.nifCif,
         //direccion:req.query.direccion,
         email:req.body.email,
-        telefono:req.query.telefono,
+        telefono:req.body.telefono,
         nick:req.body.nick,
         clave: hashString,
-        //FormaPago:req.query.FormaPago,
        // HistorialPedidos:req.query.HistorialPedidos,
         //Carro:req.query.Carro,	
 		avatar:req.body.avatar,
@@ -143,28 +143,34 @@ app.post('/nuevoUsuario/', mimeParser.none(), async (req,res)=>{
 	};
 	//var result = await collFiles.insertOne(file);
 	var mongoRes = await collection.insertOne(documento);
-	//var usuario = await collection.find().toArray();
-	//var json = JSON.stringify(usuario);
-	//console.log(file);
-    //res.send(result.insertedId);
-    var validates = autenticate(telefono,pwd);
-    req.session.authenticated = validates;
-    res.send(JSON.stringify(validates));
+	var usuario = await collection.find().toArray();
+	var json = JSON.stringify(usuario);
+	console.log(file);
+    res.send(result.insertedId);
+    //var validates = autenticate(telefono,pwd);
+    //req.session.authenticated = validates;
+    //res.send(JSON.stringify(validates));
 });
-app.get('/login/', async (req, res)=>{
+app.post('/login/', mimeParser.none() , async (req, res)=>{
     var telefono = req.body.telefono;
     var pwd = req.body.clave;
-    var icono = req.body.avatar;
+    //var icono = req.body.avatar;
     const hash = crypto.createHash('sha256');
 	hash.update(pwd);
     var hashString = hash.digest('base64');
     var filtro = {
         telefono: telefono,
         clave: hashString,
-        icono: icono,
+        //icono: icono,
     };
     var usuario = await collection.findOne(filtro);
-    var validates = autenticate(telefono,pwd);
+    //var validates = autenticate(telefono,pwd);
+    var validates;
+    if (usuario) {
+        validates = true;
+    } else {
+        validates = false;
+    }
     req.session.authenticated = validates;
     res.send(JSON.stringify(validates));
 });

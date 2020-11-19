@@ -29,6 +29,7 @@
 </article>
 
 <style>
+	
 	.contact-card {
 		width: 300px;
 		border: 1px solid #aaa;

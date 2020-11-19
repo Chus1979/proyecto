@@ -1,4 +1,6 @@
 <script>
+	import Confirmar from './Confirmar.svelte';
+	import Terminar from './Terminar.svelte';
 	import AppCompra from './AppCompra.svelte';
 	//import Appcarro from './Appcarro.svelte';
 	//import AppProductos from './AppProductos.svelte';
@@ -38,9 +40,6 @@
                     <AppCompra bind:carrito bind:seccion={seccion} bind:userId={userId}/>
                     {/if}
                     {#if seccion === "confirmar"}
-                    <Confirmar bind:carrito bind:seccion={seccion} bind:userId={userId}/>
-                    {/if}
-                    {#if seccion === "terminar"}
                     <Terminar bind:carrito bind:seccion={seccion} bind:userId={userId}/>
                     {/if}
                 {:else}
