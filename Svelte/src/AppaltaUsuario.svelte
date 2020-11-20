@@ -9,15 +9,17 @@
 	var usuarios = [];
 	var listadoUsuarios = [];
 	var nick = "";
-	var nombre,dni, email, clave;
-	var telefono;
+	var nombre,dni, telefono, email, clave;
 	
 	var actualizar;
 
 	$: actualizar;
 
 	async function borrar(){	//para q borre todos los datos despues de darle a enviar
-		nombre=dni=email=nick=clave=telefono='';
+		nombre=dni=telefono=email=nick=clave='';
+	};
+	async function regresar(){
+		seccion = "inicio";
 	};
 
     async function enviar() {
@@ -29,7 +31,6 @@
 		data.append('email',email);
 		data.append('nick',nick);
 		data.append('clave',clave);
-		//data.append('avatar',avatar)
 		var requestOptions = {
 			method: 'POST',
 			body: data,
@@ -37,22 +38,24 @@
 		try {
 			var res = await fetch(url,requestOptions);
 			actualizar = await res.text();
-			console.log(actualizar);
-			userId = actualizar;
-			seccion = "entrada";
-			borrar();
+				if(Response.Ok){
+					userId = actualizar;
+					seccion = "entrada";
+					console.log(userId);
+					borrar();
+					window.alert('Se ha registrado correctamente');
+				}else{
+					window.alert('El usuario ya existe');
+					regresar();
+				};
 		} catch (err) {
 			console.log(`********`);
 			window.alert(`Algo salio mal: ${err.message}`);
-			borrar();
-		}
+			regresar();
+		};
+		borrar();
+	};
 		
-	};
-	async function regresar(){
-		seccion = "inicio";
-	};
-	
-	
 </script>
 
 <main>

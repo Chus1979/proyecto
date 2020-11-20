@@ -1,5 +1,6 @@
 <script>
 	import Avatar from './Avatar.svelte';
+	
 	export var userId;
 	export var seccion;
 	export var nick;

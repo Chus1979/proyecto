@@ -116,41 +116,59 @@ app.get( '/private/', autenticatedSession, function( req, res ) {
   * ####################################
   */
 app.post('/nuevoUsuario/', mimeParser.none(), async (req,res)=>{
-	var nuevoUsuario = req.body.usuario; 
-	var pwd = req.body.clave;   //para q coincida con el input y el data.append
-	const hash = crypto.createHash('sha256');
-	hash.update(pwd);
-	var hashString = hash.digest('base64');
-	/*var file = {
-		folder: req.file.destination,
-		name: req.file.filename,
-		oldName: req.file.originalname,
-		mime: req.file.mimetype,
-	}*/
-	var documento = {
-        nombre:req.body.nombre,
-        dni:req.body.dni,
-        //nifCif:req.body.nifCif,
-        //direccion:req.query.direccion,
-        email:req.body.email,
-        telefono:req.body.telefono,
-        nick:req.body.nick,
-        clave: hashString,
-       // HistorialPedidos:req.query.HistorialPedidos,
-        //Carro:req.query.Carro,	
-		avatar:req.body.avatar,
-		//file:req.body.file,
-	};
-	//var result = await collFiles.insertOne(file);
-	var mongoRes = await collection.insertOne(documento);
-	var usuario = await collection.find().toArray();
-	var json = JSON.stringify(usuario);
-	console.log(file);
-    res.send(result.insertedId);
+    try{
+        var nuevoUsuario = req.body.usuario; 
+        var pwd = req.body.clave;   //para q coincida con el input y el data.append
+        const hash = crypto.createHash('sha256');
+        hash.update(pwd);
+        var hashString = hash.digest('base64');
+        /*var file = {
+            folder: req.file.destination,
+            name: req.file.filename,
+            oldName: req.file.originalname,
+            mime: req.file.mimetype,
+        }*/
+        var documento = {
+            nombre:req.body.nombre,
+            dni:req.body.dni,
+            //nifCif:req.body.nifCif,
+            //direccion:req.query.direccion,
+            email:req.body.email,
+            telefono:req.body.telefono,
+            nick:req.body.nick,
+            clave: hashString,
+        // HistorialPedidos:req.query.HistorialPedidos,
+            //Carro:req.query.Carro,	
+            avatar:req.body.avatar,
+            //file:req.body.file,
+        };
+        //var result = await collFiles.insertOne(file);
+        var usuario = await collection.findOne(
+            {$or:[
+                {nombre:req.body.nombre},
+                {dni:req.body.dni},
+                {email:req.body.email},
+                {telefono:req.body.telefono},
+                {nick:req.body.nick},
+                {clave: hashString},
+            ]}
+        );
+            if(usuario){
+                console.log('El usuario ya existe, prueba otra vez');
+                res.status(418).send(err);
+            }else{
+                var mongoRes = await collection.insertOne(documento);                
+                var json = JSON.stringify(usuario);
+                res.send(result.insertedId);
+                console.log(json);
+            };
+    }catch(err){
+        res.status(418).send(err);
+    };  
+});   
     //var validates = autenticate(telefono,pwd);
     //req.session.authenticated = validates;
     //res.send(JSON.stringify(validates));
-});
 app.post('/login/', mimeParser.none() , async (req, res)=>{
     var telefono = req.body.telefono;
     var pwd = req.body.clave;
