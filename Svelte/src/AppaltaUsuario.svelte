@@ -54,7 +54,7 @@
 		try {
 			var res = await fetch(url,requestOptions);
 			actualizar = await res.text();
-				if(Response.Ok){
+				if(res.ok){
 					userId = actualizar;
 					seccion = "entrada";
 					console.log(userId);

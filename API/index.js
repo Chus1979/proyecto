@@ -153,16 +153,18 @@ app.post('/nuevoUsuario/', mimeParser.none(), async (req,res)=>{
                 {clave: hashString},
             ]}
         );
-            if(usuario){
+        console.log(usuario)
+            if(usuario !== null ){
                 console.log('El usuario ya existe, prueba otra vez');
-                res.status(418).send(err);
+                res.status(418);
             }else{
                 var mongoRes = await collection.insertOne(documento);                
-                var json = JSON.stringify(usuario);
-                res.send(result.insertedId);
+                var json = JSON.stringify(documento);
+                res.send('ok');
                 console.log(json);
             };
     }catch(err){
+        console.error(err)
         res.status(418).send(err);
     };  
 });   

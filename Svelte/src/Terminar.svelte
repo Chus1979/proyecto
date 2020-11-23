@@ -15,7 +15,7 @@ async function empezar(){
 async function mandarAviso(){
         seccion = "mandarAviso";
 };
-   
+
 </script>
 
 <main>
@@ -27,11 +27,11 @@ async function mandarAviso(){
             <span slot="nombre">
                 {userId.nombre}
             </span>
-            <span slot ="direccion">
-                <input class="dirección" placeholder="Direccion de envio">
-            </span>
             <span slot="telefono">
                 {userId.telefono}
+            </span>
+            <span slot ="direccion">
+                <input class="dirección" placeholder="Direccion de envio">
             </span>
             <span slot="email">
                 {userId.email}

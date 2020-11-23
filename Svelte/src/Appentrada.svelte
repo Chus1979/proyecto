@@ -8,7 +8,7 @@
     export var seccion;
     export var userId;
     export var nick;
-    
+    console.log(nick);
 
     async function mercado () {
         seccion = "mercado";       

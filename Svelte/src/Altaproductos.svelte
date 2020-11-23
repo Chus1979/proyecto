@@ -49,6 +49,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 <head>
 	<Avatar bind:nick/>
+	<p>{userId}</p>
 </head>
 	<div id="nuevoProducto">
 		<h2>Añadir Productos.-</h2>
@@ -56,11 +57,11 @@
 		<p>Precio:<input id="precio" type="text" bind:value={precio}></p>
 		<p>Unidades:<input id="unidades" type="text" bind:value={unidades}></p>
 		<p>Stock:<input id="stock" type="text" bind:value={stock}></p>
-		<p>{userId}</p>
-    </div>
+		<p>Producto agregado: {resultado}</p>
+	</div>
 	<button on:click={enviar}>Enviar</button>
-	<p>Producto agregado: {resultado}</p>
 	<button id="regresar" on:click={regresar}></button>
+	
 </main>
 
 <style>
