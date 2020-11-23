@@ -35,14 +35,13 @@
         }
         var resp = await fetch(LoginURL,requestOptions);
         userId = await resp.json();
-        //getlistadoUsuarios();
             if (userId!=="false"){
                 seccion = "entrada";
             }else{
                 alert('Algo ha salido mal. Vuelve a intentarlo.');
             }
         borrar();
-    }
+    };
     /*async function getlistadoUsuarios(){
         var getlistadoUsuariosURL = 'http://localhost:3000/listadoUsuarios';
         var resp = await fetch(getlistadoUsuariosURL);

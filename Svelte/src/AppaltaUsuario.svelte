@@ -21,7 +21,23 @@
 	async function regresar(){
 		seccion = "inicio";
 	};
-
+	async function Login(){
+        var LoginURL = 'http://localhost:3000/login/';
+        var data = new FormData();
+        data.append('telefono',telefono);
+        data.append('clave',clave);
+        var requestOptions = {
+            method: 'POST',
+            body: data,
+        }
+        var resp = await fetch(LoginURL,requestOptions);
+        userId = await resp.json();
+            if (userId!=="false"){
+                seccion = "entrada";
+            }else{
+                alert('Algo ha salido mal. Vuelve a intentarlo.');
+            }
+    };
     async function enviar() {
 		var url = 'http://localhost:3000/nuevoUsuario/';
 		var data = new FormData();//los data.append deben ser= a los inputs
@@ -42,6 +58,7 @@
 					userId = actualizar;
 					seccion = "entrada";
 					console.log(userId);
+					Login();
 					borrar();
 					window.alert('Se ha registrado correctamente');
 				}else{

@@ -132,13 +132,13 @@ app.post('/nuevoUsuario/', mimeParser.none(), async (req,res)=>{
             nombre:req.body.nombre,
             dni:req.body.dni,
             //nifCif:req.body.nifCif,
-            //direccion:req.query.direccion,
+            //direccion:req.body.direccion,
             email:req.body.email,
             telefono:req.body.telefono,
             nick:req.body.nick,
             clave: hashString,
-        // HistorialPedidos:req.query.HistorialPedidos,
-            //Carro:req.query.Carro,	
+        // HistorialPedidos:req.body.HistorialPedidos,
+            //Carro:req.body.Carro,	
             avatar:req.body.avatar,
             //file:req.body.file,
         };
@@ -182,7 +182,6 @@ app.post('/login/', mimeParser.none() , async (req, res)=>{
         //icono: icono,
     };
     var usuario = await collection.findOne(filtro);
-    //var validates = autenticate(telefono,pwd);
     var validates;
     if (usuario) {
         validates = true;
