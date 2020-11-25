@@ -184,14 +184,15 @@ app.post('/login/', mimeParser.none() , async (req, res)=>{
         //icono: icono,
     };
     var usuario = await collection.findOne(filtro);
-    var validates;
+    var response;
     if (usuario) {
-        validates = true;
+        response = usuario;
+        req.session.authenticated = true;
     } else {
-        validates = false;
+        response = false;
+        req.session.authenticated = false;
     }
-    req.session.authenticated = validates;
-    res.send(JSON.stringify(validates));
+    res.send(JSON.stringify(usuario));
 });
     /**
      * Recibe los datos del formulario de login.

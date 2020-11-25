@@ -26,7 +26,7 @@
 			data.append('precio',precio);
 			data.append('unidades',unidades);
 			data.append('stock',stock);
-			data.append('proveedor',userId);
+			data.append('proveedor',userId.nick);
 			var requestOptions = {
 				method: 'POST',
 				body: data,
@@ -43,14 +43,17 @@
 	async function regresar(){
 		seccion = "entrada";
 	};
+	async function Nick(){
+     seccion="nick";
+ };
 </script>
 
 <main>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-<head>
-	<Avatar bind:nick/>
-	<p>{userId}</p>
-</head>
+	<div>
+		<Avatar bind:nick on:click={Nick}/>
+		<p class="p">{userId.nick}</p>
+	</div>
 	<div id="nuevoProducto">
 		<h2>Añadir Productos.-</h2>
 		<p>Productos:<input id="producto" type="text" bind:value={producto}></p>
@@ -67,17 +70,22 @@
 <style>
 #nuevoProducto{
 	font-family: 'ZCOOLXiaoWei-Regular.ttf';
-	color: rgb(57, 5, 82);
-	font-size: 35px;
+	color: rgb(5, 82, 53);
+	font-size: 45px;
 	text-align: center;
-	float: right;
+	display:block;
 }
 input{
-	font-size: 25px;
+	font-size: 35px;
 	border-radius: 50px;
-	border-color: rgb(48, 2, 48);
-	color:rgb(193, 72, 233);
-	background-color: rgba(44, 2, 43, 0.693);
+	color: rgb(69, 186, 141);
+	background-color: rgba(2, 44, 42, 0.693);
 	font-family: 'ZCOOLXiaoWei-Regular.ttf';
+	text-align: center;
+}
+.p{
+    font-size: 60px;
+    color:rgb(9, 240, 9);
+    text-align: center;
 }
 </style>

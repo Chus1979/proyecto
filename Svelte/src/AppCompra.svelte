@@ -24,13 +24,16 @@
         userId = null;
         seccion = "inicio";
     };
-   
+    async function Nick(){
+     seccion="nick";
+ };
 </script>
 
 <main>
-    <head>
-        <Avatar bind:nick={nick}/>
-    </head>
+    <div>
+        <Avatar bind:nick={nick} on:click={Nick}/>
+        <p class="p">{userId.nick}</p>
+    </div>
     <div class="liscompra">
     <p>Lista de la compra</p>
     <table>
@@ -49,40 +52,53 @@
                 <td>{carro.subTotal}€</td>
             </tr>
             {/each}
-            <tr>
+            <tr class="td">
                 <td colspan={2}>Total Compra:</td>
                 <td>{total}€</td>
             </tr>
         </tbody>
     </table>
     </div>
-    <p>{userId}</p>
     <button id="confirmar"on:click={confirmar}>Siguiente</button>
     <button id="empezar" on:click={empezar}>Salir</button>
 </main>
 
 <style>
 
-div{
+.p{
+    font-size: 60px;
+    color:rgb(9, 240, 9);
+    text-align: center;
+}
+div.liscompra{
     text-align:center;
-    background-color: rgba(109, 109, 172, 0.638);
-    float:inline-end;
+    background-color: rgba(95, 54, 191, 0.528);
+    float: left;
+    border-color:rgb(1, 250, 84);;
+    color:rgb(1, 250, 84);
 }
 table{
         font-family: 'ZCOOLXiaoWei-Regular.ttf';
-        color: rgb(97, 29, 119);
+        color: rgb(125, 255, 125);
         font-size: 25px;
     }
 p{
      font-family: 'Balsamiq-Regular.ttf';
      font-size: 35px;
      text-align: center;
-     color:rgb(93, 9, 135);
+     color:rgb(7, 248, 55);
+     margin-bottom: 25px;
+}
+.td{
+    font-family: 'ZCOOLXiaoWei-Regular.ttf';
+    color: rgb(55, 0, 252);
+    font-size: 25px;
+    margin-top:25px;
 }
 #confirmar{
-    float:left;
+   display:inline;
 }
 #empezar{
-    margin-left: 200px;
+    display:inline;
 }
 </style>

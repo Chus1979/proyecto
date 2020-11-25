@@ -75,8 +75,8 @@ input#cantidad{
 	font-size: 30px;
 	border-radius: 50px;
 	border-color: rgb(1, 250, 84);
-	color:rgb(9, 53, 13);
-    background-color: rgba(73, 158, 52, 0.693);
+	color:rgb(2, 36, 5);
+    background-color: rgb(1, 250, 84);
     width: 150px;
     margin-left: initial;
 }

@@ -1,5 +1,4 @@
 <script>
-    //import { dataset_dev } from "svelte/internal";
 	//import AppaltaUsuario from './AppaltaUsuario.svelte';
     //import Appentrada from "./Appentrada.svelte";
     //import Appinicio from './Appinicio.svelte';
@@ -9,9 +8,6 @@
     export var userId;
     var telefono;
     var clave;
-    //var adelante;
-    //var avatarURL;
-    //$: avatarURL = `https://avatars.dicebear.com/api/avataaars/${userId}.svg?options[backgroundcolor]=#0000ff)`;
 
     $: seccion="inicio";
 
@@ -42,14 +38,13 @@
             }
         borrar();
     };
+
     /*async function getlistadoUsuarios(){
         var getlistadoUsuariosURL = 'http://localhost:3000/listadoUsuarios';
         var resp = await fetch(getlistadoUsuariosURL);
         var usuario = await resp.json();
         console.log(usuario);
     }*/
-   
-
 </script>
 
 <main>
@@ -57,7 +52,6 @@
         <h2 id="arriba">Si ya eres usuario,</h2><h2 id="abajo">escribe el telefono y la clave.-</h2>
             <p>Telefono.- <input id="telefono" type="text" placeholder="Completa este campos" bind:value={telefono} required></p><br>
             <p>Clave.- <input id="clave" type="password" placeholder="Escribe tu clave para poder acceder" bind:value={clave} required></p>
-            <!--p>Avatar:<Avatar bind:nick={telefono}/></p-->
     <button id="enlogin" on:click={Login}>Enviar</button>
     <button id = "regresar" on:click={empezar}></button>
     </div>

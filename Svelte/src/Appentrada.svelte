@@ -8,7 +8,6 @@
     export var seccion;
     export var userId;
     export var nick;
-    console.log(nick);
 
     async function mercado () {
         seccion = "mercado";       
@@ -20,12 +19,17 @@
         seccion = "inicio";
         userId = null;
     }
+    async function Nick(){
+     seccion="nick";
+     userId.nick;
+    };
 </script>
 
 <main>
-<head>
-    <Avatar bind:nick={nick}/>
-</head>
+        <div class="avatar">
+            <Avatar bind:nick={nick} on:click={Nick}/>
+            <p class="p">{userId.nick}</p>
+        </div>
         <div class="botonentrada">
         <button id = "inicio" on:click={inicio}>Inicio</button>
         <button id="mercado" on:click={mercado}>Mercado</button>
@@ -34,7 +38,12 @@
 </main>
 
 <style>
-
+.p{
+    font-size: 80px;
+    color:rgb(94, 255, 94);
+    text-align: center;
+    text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
+}
 div.botonentrada{
     display: inline-flex;
     margin-left: -400px;

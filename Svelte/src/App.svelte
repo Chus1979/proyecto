@@ -1,5 +1,5 @@
 <script>
-	import Confirmar from './Confirmar.svelte';
+	//import Confirmar from './Confirmar.svelte';
 	import Terminar from './Terminar.svelte';
 	import AppCompra from './AppCompra.svelte';
 	//import Appcarro from './Appcarro.svelte';
@@ -9,15 +9,17 @@
     import Appentrada from './Appentrada.svelte';
     import Mercado from './Mercado.svelte';
     import Altaproductos from './Altaproductos.svelte';
+    import Avatar from './Avatar.svelte';
+    import { bind } from 'svelte/internal';
 
     var seccion = "bienvenida";
     var userId = null;
     var carrito = []
-        
+    var nick;
+       
 </script>
 
 <main>
-
     <div class="app" >
         <head>
             <meta name="viewport" content="width=device-width">
@@ -26,7 +28,10 @@
             <h1>MiMercado.es</h1>
                 <h2>Del productor a tu Casa</h2>  
                 
-                {#if userId}    
+                {#if userId} 
+                    {#if seccion === "nick"}
+                    <Avatar bind:seccion={seccion} bind:nick={nick}/>
+                    {/if} 
                     {#if seccion === "entrada"}
                     <Appentrada bind:seccion={seccion} bind:userId={userId}/>
                     {/if}

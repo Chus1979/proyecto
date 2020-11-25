@@ -12,24 +12,35 @@
 	let avatars = new Avatars(sprites, options);
     let svg = avatars.create('custom-seed');
     */
-   /** @type {any} */
 
-    export var nick;
+export var nick;
+export var seccion;
+//export var userId;
 
-    var avatarURL;
+var avatarURL;
     
-    $: avatarURL = `https://avatars.dicebear.com/api/avataaars/${nick}.svg?options[backgroundcolor]=#0000ff)`;
+$: avatarURL = `https://avatars.dicebear.com/api/avataaars/${nick}.svg?options[backgroundcolor]=#0000ff)`;
 
+
+ async function Nick(){
+     seccion="nick";
+ }
 </script>
 
-<head>
-    <img src={avatarURL} alt= "Avatares aleatorios">
-</head>
+<main>
+    <img src={avatarURL} alt= "Avatares aleatorios" on:click={Nick}>
+</main>
 
 <style>
+
+main{
+    display: flex; 
+    justify-content: center;
+    margin-bottom: 100px;
+}
 
 img {
     width: 200px;
     height: 200px;
-}
+}  
 </style>

@@ -26,13 +26,16 @@
         userId = null;
         seccion = "inicio";
     };
-   
+   async function Nick(){
+       seccion = "nick";
+   }
 </script>
 
 <main>
-    <head>
-        <Avatar bind:nick={nick}/>
-    </head>
+    <div>
+        <Avatar bind:nick={nick} on:click={Nick}/>
+        <p class="p">{userId.nick}</p>
+    </div>
     <div class="liscompra">
     <p>Lista de la compra</p>
     <table>
@@ -62,3 +65,10 @@
     <button id="siguiente"on:click={siguiente}>Terminar</button>
     <button id="regresar" on:click={empezar}>Inicio</button>
 </main>
+<style>
+    .p{
+    font-size: 60px;
+    color:rgb(9, 240, 9);
+    text-align: center;
+}
+</style>

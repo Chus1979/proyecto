@@ -40,7 +40,6 @@
 </script>
 
 <main>
-    {userId}
     <table class="carro"> 
         <thead>
             <tr>
@@ -50,12 +49,12 @@
             </tr>
         </thead>
         <tbody>
-                
             {#each carrito as carro, idx}
                 <tr>
                     <td>{carro.producto}</td>
                     <td><input id="cantidad" type="number" bind:value={carro.cantidad} on:click={()=>{gastosProduc(idx)}}>
                         <button class = "borrar" on:click={()=>{borrar(idx)}}>Borrar</button>
+                    </td>
                     <td>
                         {carro.subTotal}€
                     </td>
@@ -67,10 +66,10 @@
                 </tr>
         </tbody>
     </table>
-<div class="botones">
-<button id="comprar" on:click={comprar}>Comprar</button>
-<button id="regresar" on:click={regresar}></button>
-</div>
+    <div class="botones">
+        <button id="comprar" on:click={comprar}>Comprar</button>
+        <button id="regresar" on:click={regresar}></button>
+    </div>
 
 </main>
 
@@ -82,7 +81,7 @@
 }
 #comprar{
     margin-left: 300px;
-    font-size: 20px;
+    font-size: 40px;
 }
 .borrar{
     font-size: 20px;
@@ -92,10 +91,9 @@ input#cantidad{
 	font-family: 'ZCOOLXiaoWei-Regular.ttf';
 	font-size: 30px;
 	border-radius: 50px;
-	border-color: rgb(200, 1, 250);
-	color:rgb(5, 82, 12);
-    background-color: rgba(158, 52, 119, 0.693);
+	border-color: rgb(29, 4, 138);
+	color:rgb(22, 5, 82);
+    background-color: rgba(52, 158, 112, 0.693);
     width: 150px;
-    margin-left: initial;
 }
 </style>

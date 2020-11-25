@@ -1,6 +1,5 @@
 <script>
 	import Avatar from './Avatar.svelte';
-    //import Appcarro from './Appcarro.svelte';
     import AppProductos from "./AppProductos.svelte";
     /**
     De momento no pongo nada en el index pq estoy usando la BD de produc. y ya está creada
@@ -21,14 +20,17 @@
     getlistadoProduc();
     async function regresar(){
         seccion = "entrada";
-    }
+    };
+    async function Nick(){
+     seccion="nick";
+ };
 </script>
 
 <main>
-    <head>
-        <Avatar bind:nick={nick}/>
-    </head>
-    <p>{userId}</p>
+    <div>
+        <Avatar bind:nick={nick} on:click={Nick}/>
+        <p class="p">{userId.nick}</p>
+    </div>
     <button id="regresar" on:click={regresar}></button>
     <div class="todo">
        <AppProductos bind:carrito bind:seccion={seccion} bind:userId={userId}/>
@@ -37,5 +39,9 @@
 </main>
 
 <style>
-
+.p{
+    font-size: 60px;
+    color:rgb(9, 240, 9);
+    text-align: center;
+}
 </style>

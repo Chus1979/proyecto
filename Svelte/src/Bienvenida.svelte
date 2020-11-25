@@ -24,10 +24,7 @@
 .introduccion{
     font-family:'Ruluko-Regular.ttf';
     text-align: center;
-    color:rgb(31, 84, 57);
+    color:rgb(12, 11, 53);
     font-size: 40px;
-    font-weight: bold;
-    background:rgba(165, 42, 42, 0.426);
 }
-
 </style>

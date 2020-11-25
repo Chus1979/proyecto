@@ -106,6 +106,6 @@ input{
 	margin-left: 10px;
 	color: rgb(2, 6, 65);
 	font-size: 30px;
-	background-color: rgb(10, 243, 243);
+	background-color: rgb(86, 169, 169);;
 }
 </style>
