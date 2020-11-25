@@ -16,14 +16,15 @@
 </main>
 
 <style>
-
-.introduccion{
-    font-family:'Marmelad-Regular.ttf';
-    text-align: center;
-    color:rgb(31, 84, 57);
-    font-size: 40px;
-    font-weight: bold;
-    background:rgba(165, 42, 42, 0.426);
+@font-face{
+    font-family: 'Ruluko-Regular.ttf';
+    src:url('../Ruluko-Regular.ttf')
 }
 
+.introduccion{
+    font-family:'Ruluko-Regular.ttf';
+    text-align: center;
+    color:rgb(12, 11, 53);
+    font-size: 40px;
+}
 </style>

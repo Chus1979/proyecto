@@ -2,16 +2,12 @@
     font-family: 'BalsamiqSans-Regular.ttf';
 	src: url('../BalsamiqSans-Regular.ttf');
 }
+@font-face{
+    font-family: 'Ruluko-Regular.ttf';
+    src:url('../Ruluko-Regular.ttf')
+}
 body.fondo{
-	background-image: url('./img/tablones.jpg');
-	background-size: 160%;
-	background-repeat: no-repeat;
-	position: absolute;
-	margin-left: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-	margin-bottom: 0px;
-	padding-bottom: 0px;
+	background-color:rgba(113, 113, 240, 0.727)
 }
 .fondo:before{
 	content:'';
@@ -22,7 +18,6 @@ body.fondo{
 	right: 0;
 	opacity:0.2;
 	z-index: -1;
-
 }
 input{
 	font-family: 'Quicksand-Medium.ttf';
@@ -32,7 +27,6 @@ input{
 	border-radius: 50px;
 	color:rgb(48, 2, 2);
 }
-
 input:disabled {
 	color:darkolivegreen;
 }
@@ -46,11 +40,11 @@ button:focus {
 h1{
 	font-family: 'Artifika-Regular.ttf';
     text-align: center;
-    color:rgb(9, 76, 247);
+    color: greenyellow;
 	font-size: 150px;
-    text-decoration: rgb(62, 62, 156);
-	text-shadow: 7px 7px 7px rgb(7, 87, 114);
+    text-decoration: rgb(62, 107, 156);
 	position: static;
+	text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
 }
 @font-face{
     font-family: 'Gabriela-Regular.ttf';
@@ -58,39 +52,42 @@ h1{
 }
 h2{
 	text-align: center;
-    color:rgb(6, 172, 20);
+    color:rgb(12, 236, 243);
     font-family: 'Gabriela-Regular.ttf';
 	font-size: 60px;
-	text-decoration-color: rgb(59, 112, 72);
-	text-shadow: 6px 6px 6px rgb(24, 65, 33);
+	text-decoration-color: rgb(2, 29, 80);
 	margin-bottom: 150px;
+	letter-spacing: 0;
+	text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
 }
 h3{
 	text-align: center;
-	color:rgb(64, 79, 30);
-	text-shadow: 6px 6px 6px rgb(20, 146, 98);
+	color:rgb(5, 250, 164);
+	text-shadow: 6px 6px 6px rgb(3, 250, 155);
     font-family: 'Gabriela-Regular.ttf';
     font-size: 50px;
 	text-underline-position: auto;
 	text-decoration-line: underline;
   	text-decoration-style: solid;
-  	text-decoration-color: rgb(109, 253, 6);
+	text-decoration-color: rgb(3, 131, 250);
+	letter-spacing: 0;
+	text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
 }
 button {
     text-align: center;
     font-style: oblique;
     font-family:'Quicksand-Medium.ttf';
     border-radius: 80%;
-    background: lightseagreen;
+    background: rgb(32, 83, 178);
     padding: 10px;
     font-size: 50px;
-	color: rgb(4, 89, 47);
+	color: rgb(5, 4, 89);
 	float: left;
 	margin-left: 40%;
 }
 button:hover {
 	padding: 15px;
-	background: rgb(114, 114, 240);
+	background: rgb(52, 52, 247);
 }
 button#regresar{
     background-image:url('./img/arrow-go-back-fill.svg');
@@ -100,16 +97,16 @@ button#regresar{
     height:70px;
     width:70px;
     background-position:center;
-	margin-left: 60%;
+	margin-left: 55%;
 	font-size: 50px;
 }
 @font-face{
     font-family: "ZCOOLXiaoWei-Regular.ttf";
     src: url("../ZCOOL_XiaoWei/ZCOOLXiaoWei-Regular.ttf");
-}   
+}  
 table.tablaMercado {
     font-family: "ZCOOLXiaoWei-Regular.ttf";
-    background: rgba(2, 141, 2, 0.3);
+    background: rgba(11, 105, 118, 0.357);
     width: auto;
     height: auto;
     text-align: center;
@@ -126,15 +123,15 @@ td{
 }
 
 div.carro{
+	display: inline;
 	margin-right: 0px;
-	margin-left: 105%;
 	position: absolute;
 	z-index: +1;
 }
 table.carro{
     font-family: "ZCOOLXiaoWei-Regular.ttf";
-    background: rgba(248, 102, 102, 0.803);
-    border: 1px solid rgba(120, 237, 4, 0.522);
+    background: rgba(89, 218, 132, 0.803);
+    border: 1px solid rgba(0, 68, 42, 0.522);
     width: 100%;
     height: 100%;
 	text-align: center;
@@ -149,9 +146,5 @@ tbody{
 td.total{
     font-size: 35px;
     color:darkblue;
-    border-top: 3px solid darkorchid;
-}
-@font-face{
-    font-family:'Marmelad-Regular.ttf';
-    src: url('../Marmelad-Regular.ttf');
+    border-top: 3px solid rgb(9, 17, 245);
 }

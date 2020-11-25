@@ -1,28 +1,46 @@
 <script>
+    /*
+    import Bienvenida from './Bienvenida.svelte';
+	import Appentrada from './Appentrada.svelte';
+	import Appinicio from './Appinicio.svelte';
+	import App from './App.svelte';
+	import Login from './Login.svelte';
+	import AppaltaUsuario from './AppaltaUsuario.svelte';
     /*import Avatars from '@dicebear/avatars';
     import sprites from '@dicebear/avatars-initials-sprites';
     let options = {};
 	let avatars = new Avatars(sprites, options);
     let svg = avatars.create('custom-seed');
     */
+
+export var nick;
+export var seccion;
+//export var userId;
+
+var avatarURL;
     
-    export var nick;
+$: avatarURL = `https://avatars.dicebear.com/api/avataaars/${nick}.svg?options[backgroundcolor]=#0000ff)`;
 
-    var avatarURL;
-    $: avatarURL = `https://avatars.dicebear.com/api/initials/${nick}.svg?options[backgroundcolor]=#0000ff)`;
 
+ async function Nick(){
+     seccion="nick";
+ }
 </script>
 
 <main>
-    <img src={avatarURL} alt= "iniciales del usuario">
+    <img src={avatarURL} alt= "Avatares aleatorios" on:click={Nick}>
 </main>
 
 <style>
 
+main{
+    display: flex; 
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
 img {
-    color: #7474f0;
     width: 200px;
     height: 200px;
-    }
-
+}  
 </style>
