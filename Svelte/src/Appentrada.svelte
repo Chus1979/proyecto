@@ -19,15 +19,15 @@
         seccion = "inicio";
         userId = null;
     }
-    async function Nick(){
-     seccion="nick";
-     userId.nick;
+    async function avatar(){
+        nick=userId.nick;
+        seccion="nick";
     };
 </script>
 
 <main>
         <div class="avatar">
-            <Avatar bind:nick={nick} on:click={Nick}/>
+            <Avatar bind:nick={nick} on:click={avatar}/>
             <p class="p">{userId.nick}</p>
         </div>
         <div class="botonentrada">

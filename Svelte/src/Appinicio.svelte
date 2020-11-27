@@ -8,7 +8,6 @@
     //import ApplistadoProduc from './ApplistadoProduc.svelte';
     
     export var seccion; //exportamos seccion para poder ir de un fichero a otro y el bind, lo pusimos en el anterior
-
     export var userId; 
     /** es la 1º vez q se nombra y nos va a hacer falta para el resto del programa
      * Se le hace un bind para copmpartir con el resto de ficheros 

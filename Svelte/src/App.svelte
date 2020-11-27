@@ -10,7 +10,7 @@
     import Mercado from './Mercado.svelte';
     import Altaproductos from './Altaproductos.svelte';
     import Avatar from './Avatar.svelte';
-    import { bind } from 'svelte/internal';
+    //import { bind } from 'svelte/internal';
 
     var seccion = "bienvenida";
     var userId = null;

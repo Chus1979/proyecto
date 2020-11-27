@@ -94,6 +94,6 @@ input#cantidad{
 	border-color: rgb(29, 4, 138);
 	color:rgb(22, 5, 82);
     background-color: rgba(52, 158, 112, 0.693);
-    width: 150px;
+    width: 100px;
 }
 </style>

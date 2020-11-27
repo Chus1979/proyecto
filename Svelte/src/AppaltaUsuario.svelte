@@ -24,8 +24,8 @@
 	async function Login(){
         var LoginURL = 'http://localhost:3000/login/';
         var data = new FormData();
-        data.append('telefono',telefono);
-        data.append('clave',clave);
+        data.append('telefono', telefono);
+		data.append('clave', clave);
         var requestOptions = {
             method: 'POST',
             body: data,
@@ -35,18 +35,19 @@
             if (userId!=="false"){
                 seccion = "entrada";
             }else{
-                alert('Algo ha salido mal. Vuelve a intentarlo.');
+				alert('Algo ha salido mal. Vuelve a intentarlo.');
+				regresar();
             }
     };
     async function enviar() {
 		var url = 'http://localhost:3000/nuevoUsuario/';
 		var data = new FormData();//los data.append deben ser= a los inputs
-		data.append('nombre',nombre);
-		data.append('dni',dni);
+		data.append('nombre', nombre);
+		data.append('dni', dni);
 		data.append('telefono', telefono);
-		data.append('email',email);
-		data.append('nick',nick);
-		data.append('clave',clave);
+		data.append('email', email);
+		data.append('nick', nick);
+		data.append('clave', clave);
 		var requestOptions = {
 			method: 'POST',
 			body: data,
@@ -85,7 +86,7 @@
 		<p>Email:<input id="email" type="email" bind:value={email} required></p>
 		<p>Nick:<input id="nick" type="text" bind:value={nick} required></p>
 		<p>Contraseña:<input id="clave" type="password" bind:value={clave} required></p>
-		<!--p>Avatar:<Avatar bind:nick={nick}/></p--><!--lo asociamos a nick que es lo q va aparecer en el reso de ficheros-->	
+	
 	<button on:click={enviar}>Enviar</button>	<!--con el nombre de la función es suficiente-->
 	<button id="regresar" on:click={regresar}></button>
 	</div>

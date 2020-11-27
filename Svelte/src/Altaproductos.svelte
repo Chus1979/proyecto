@@ -86,6 +86,7 @@ input{
 .p{
     font-size: 60px;
     color:rgb(9, 240, 9);
-    text-align: center;
+	text-align: center;
+	text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
 }
 </style>

@@ -1,6 +1,6 @@
 <script>
     export var seccion;
-   function handleClick () {
+    function handleClick () {
         seccion = "inicio";
     };
 </script>

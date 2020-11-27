@@ -1,34 +1,22 @@
 <script>
-    /*
-    import Bienvenida from './Bienvenida.svelte';
-	import Appentrada from './Appentrada.svelte';
-	import Appinicio from './Appinicio.svelte';
-	import App from './App.svelte';
-	import Login from './Login.svelte';
-	import AppaltaUsuario from './AppaltaUsuario.svelte';
-    /*import Avatars from '@dicebear/avatars';
-    import sprites from '@dicebear/avatars-initials-sprites';
-    let options = {};
-	let avatars = new Avatars(sprites, options);
-    let svg = avatars.create('custom-seed');
-    */
-
+   
 export var nick;
 export var seccion;
-//export var userId;
-
-var avatarURL;
+export var userId;
+//Avatar:<Avatar bind:nick={nick}/lo asociamos a nick que es lo q va aparecer en el reso de ficheros	
+//var avatarURL;
     
-$: avatarURL = `https://avatars.dicebear.com/api/avataaars/${nick}.svg?options[backgroundcolor]=#0000ff)`;
+$: nick;
 
 
- async function Nick(){
+ async function avatar(){
      seccion="nick";
+     nick = userId.nick;
  }
 </script>
 
 <main>
-    <img src={avatarURL} alt= "Avatares aleatorios" on:click={Nick}>
+    <img src="https://robohash.org/${nick}.png?set=set4" alt= "Gatitos aleatorios" on:click={avatar}>
 </main>
 
 <style>
@@ -40,7 +28,7 @@ main{
 }
 
 img {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
 }  
 </style>

@@ -97,7 +97,7 @@ button#regresar{
     height:70px;
     width:70px;
     background-position:center;
-	margin-left: 55%;
+	margin-left: 50%;
 	font-size: 50px;
 }
 @font-face{
@@ -123,10 +123,11 @@ td{
 }
 
 div.carro{
-	display: inline;
 	margin-right: 0px;
-	position: absolute;
 	z-index: +1;
+	position: relative;
+	float: right;
+
 }
 table.carro{
     font-family: "ZCOOLXiaoWei-Regular.ttf";
@@ -134,11 +135,12 @@ table.carro{
     border: 1px solid rgba(0, 68, 42, 0.522);
     width: 100%;
     height: 100%;
-	text-align: center;
-}
+	text-align: center;	
+}	
 thead{
 	font-family:'Gabriela-Regular.ttf';
-    font-size: 35px;
+	font-size: 35px;
+	margin-top:25%;
 }
 tbody{
     font-size: 25px;

@@ -21,14 +21,14 @@
     async function regresar(){
         seccion = "entrada";
     };
-    async function Nick(){
+    async function avatar(){
      seccion="nick";
  };
 </script>
 
 <main>
     <div>
-        <Avatar bind:nick={nick} on:click={Nick}/>
+        <Avatar bind:nick={nick} on:click={avatar}/>
         <p class="p">{userId.nick}</p>
     </div>
     <button id="regresar" on:click={regresar}></button>
@@ -43,5 +43,6 @@
     font-size: 60px;
     color:rgb(9, 240, 9);
     text-align: center;
+    text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
 }
 </style>

@@ -15,7 +15,7 @@ async function empezar(){
 async function mandarAviso(){
         seccion = "mandarAviso";
 };
-async function Nick(){
+async function avatar(){
     seccion = "nick";
 };
 /*
@@ -32,15 +32,15 @@ if(userId=true){
 
 <main>
     <div>
-        <Avatar bind:nick={nick} on:click={Nick}/>
+        <Avatar bind:nick={nick} on:click={avatar}/>
         <p class="p">{userId.nick}</p>
     </div>
     <h2>Termina de rellenar este formulario.-</h2>
    
-        <p class="nomb">Nombre: {userId.nombre}</p><br>
-        <p class="telefono">{userId.telefono}</p><br>
-        <p class="email">{userId.email}</p><br>
-        <textarea class="direccion" placeholder="Escribe aquí tu dirección de envio" required></textarea>
+        <p class="nomb">Nombre:{userId.nombre}</p>
+        <p class="telefono">Teléfono:{userId.telefono}</p>
+        <p class="email">Email:{userId.email}</p>
+        <textarea class="direccion" placeholder="Escribe aquí tu dirección de envio" required>Dirección:</textarea>
  
     <button id="mandarAviso" on:click={mandarAviso}>Terminar</button>
     <button id="empezar" on:click={empezar}>Inicio</button>
@@ -50,8 +50,10 @@ if(userId=true){
     font-size: 60px;
     color:rgb(9, 240, 9);
     text-align: center;
+    text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
 }
-p.nomb{
+
+p{
     text-align: center;
     font-size: 50px;
     color:rgb(3, 95, 26);
@@ -67,7 +69,4 @@ p.nomb{
     background-color: rgba(36, 150, 59, 0.474);
 
 }
-p.telefono{background-image:url('../img/telefono_antiguo.jpeg'); height:70px; width:70px;}
-p.email{background-image:url('../img/Correo_electrónico.pnp'); height:70px; width:70px;}
-textarea.direccion{background-image:url('../img/sobre_carta.pnp')}
 </style>

@@ -18,13 +18,12 @@
         userId = null;
         seccion = "inicio";
     };
-
     async function Login(){
         //var LoginURL = `http://localhost:3000/login/?telefono=${telefono}&clave=${clave}`; No hace falta pq es un POST
         var LoginURL = 'http://localhost:3000/login/';
         var data = new FormData();
-        data.append('telefono',telefono);
-        data.append('clave',clave);
+        data.append('telefono', telefono);
+        data.append('clave', clave);
         var requestOptions = {
             method: 'POST',
             body: data,
@@ -35,6 +34,7 @@
                 seccion = "entrada";
             }else{
                 alert('Algo ha salido mal. Vuelve a intentarlo.');
+                empezar();
             }
         borrar();
     };
@@ -52,8 +52,8 @@
         <h2 id="arriba">Si ya eres usuario,</h2><h2 id="abajo">escribe el telefono y la clave.-</h2>
             <p>Telefono.- <input id="telefono" type="text" placeholder="Completa este campos" bind:value={telefono} required></p><br>
             <p>Clave.- <input id="clave" type="password" placeholder="Escribe tu clave para poder acceder" bind:value={clave} required></p>
-    <button id="enlogin" on:click={Login}>Enviar</button>
-    <button id = "regresar" on:click={empezar}></button>
+        <button id="enlogin" on:click={Login}>Enviar</button>
+        <button id="regresar" on:click={empezar}></button>
     </div>
 </main>
 

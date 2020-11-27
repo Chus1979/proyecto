@@ -61,13 +61,14 @@
 <style>
 
 button#borrar{
-    display: inline-flex;
     font-size: 20px;
+    margin-right: 0px;
+    margin-left: 0px;
 }
 button#carro{
-    margin-left: 30px;
-    font-size: 20px;
-   
+    font-size: 20px; 
+    margin-right: 0px;
+    margin-left: 0px;
 }
 
 input#cantidad{
@@ -77,7 +78,7 @@ input#cantidad{
 	border-color: rgb(1, 250, 84);
 	color:rgb(2, 36, 5);
     background-color: rgb(1, 250, 84);
-    width: 150px;
+    width: 100px;
     margin-left: initial;
 }
 </style>
