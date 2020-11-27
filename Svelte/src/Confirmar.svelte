@@ -11,7 +11,7 @@
     $:seccion = "confirmar";
 
     $:total= Total(carrito);
-
+    $:prov= Prov(carrito);
     async function siguiente(){
         seccion = "terminar";
     };
@@ -22,18 +22,25 @@
         });
        return total;
     };
+    function Prov(x){
+        var prov;
+        carrito.forEach(userId=>{
+          prov = userId.nick;
+        });
+        return prov;
+    };
     async function empezar(){
         userId = null;
         seccion = "inicio";
     };
-   async function Nick(){
+   async function avatar(){
        seccion = "nick";
-   }
+   };
 </script>
 
 <main>
     <div>
-        <Avatar bind:nick={nick} on:click={Nick}/>
+        <Avatar bind:nick={nick} on:click={avatar}/>
         <p class="p">{userId.nick}</p>
     </div>
     <div class="liscompra">
@@ -44,6 +51,7 @@
                 <th>Producto</th>
                 <th>Cantidad</th>
                 <th>Total Producto(€)</th>
+                <th>Proveedor</th> <!--modificamos para saber los proveedores-->
             </tr>
         </thead>
         <tbody>
@@ -52,6 +60,7 @@
                 <td>{carro.producto}</td>
                 <td>{carro.cantidad}</td>
                 <td>{carro.subTotal}€</td>
+                <td>{prov}</td> <!--la otra zona q cambiamos-->
             </tr>
             {/each}
             <tr>
@@ -61,14 +70,14 @@
         </tbody>
     </table>
     </div>
-    <p>{userId}</p>
     <button id="siguiente"on:click={siguiente}>Terminar</button>
     <button id="regresar" on:click={empezar}>Inicio</button>
 </main>
 <style>
-    .p{
+.p{
     font-size: 60px;
     color:rgb(9, 240, 9);
     text-align: center;
+    text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
 }
 </style>

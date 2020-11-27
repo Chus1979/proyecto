@@ -171,17 +171,18 @@ app.post('/nuevoUsuario/', mimeParser.none(), async (req,res)=>{
     //var validates = autenticate(telefono,pwd);
     //req.session.authenticated = validates;
     //res.send(JSON.stringify(validates));
+
 app.post('/login/', mimeParser.none() , async (req, res)=>{
     var telefono = req.body.telefono;
     var pwd = req.body.clave;
-    //var icono = req.body.avatar;
+    var icono = req.body.avatar;
     const hash = crypto.createHash('sha256');
 	hash.update(pwd);
     var hashString = hash.digest('base64');
     var filtro = {
         telefono: telefono,
         clave: hashString,
-        //icono: icono,
+        sicono: icono,
     };
     var usuario = await collection.findOne(filtro);
     var response;
