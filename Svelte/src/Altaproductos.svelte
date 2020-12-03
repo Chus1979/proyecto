@@ -3,7 +3,7 @@
 	
 	export var userId;
 	export var seccion;
-	export var nick;
+	//export var nick;
 
 	var resultado;
 	var producto, precio, unidades, stock;
@@ -43,15 +43,13 @@
 	async function regresar(){
 		seccion = "entrada";
 	};
-	async function Nick(){
-     seccion="nick";
- };
+
 </script>
 
 <main>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<div>
-		<Avatar bind:nick on:click={Nick}/>
+		<Avatar bind:nick={userId.nick}/>
 		<p class="p">{userId.nick}</p>
 	</div>
 	<div id="nuevoProducto">
@@ -88,5 +86,25 @@ input{
     color:rgb(9, 240, 9);
 	text-align: center;
 	text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
+}
+h2{
+	text-align: center;
+    color:rgb(12, 236, 243);
+    font-family: 'Gabriela-Regular.ttf';
+	font-size: 60px;
+	text-decoration-color: rgb(2, 29, 80);
+	margin-bottom: 150px;
+	letter-spacing: 0;
+	text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
+}
+button {
+	float: left;
+	margin-left: 30%;
+	margin-top:10%;
+	display: block;
+}
+button#regresar{
+	margin-left: 20%;
+	margin-bottom: 10%;
 }
 </style>

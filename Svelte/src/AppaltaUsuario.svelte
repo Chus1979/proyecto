@@ -8,12 +8,14 @@
 	export var seccion;
 	var usuarios = [];
 	var listadoUsuarios = [];
-	var nick = "";
+	export var nick = "";
 	var nombre,dni, telefono, email, clave;
+
 	
 	var actualizar;
 
 	$: actualizar;
+
 
 	async function borrar(){	//para q borre todos los datos despues de darle a enviar
 		nombre=dni=telefono=email=nick=clave='';
@@ -33,7 +35,8 @@
         var resp = await fetch(LoginURL,requestOptions);
         userId = await resp.json();
             if (userId!=="false"){
-                seccion = "entrada";
+				seccion = "entrada";
+				nick = userId.nick;
             }else{
 				alert('Algo ha salido mal. Vuelve a intentarlo.');
 				regresar();
@@ -81,7 +84,7 @@
 	<div id="nuevoUsuario">
 		<h2>Nuevo Usuario.-</h2>
 		<p>Nombre:<input id="nombre" type="text" bind:value={nombre} required></p>
-		<p>D.N.I./N.I.F/C.I.F.:<input id="dni" type="text" bind:value={dni} required></p>
+		<p>D.N.I./C.I.F.:<input id="dni" type="text" bind:value={dni} required></p>
 		<p>Telefono:<input id="telefono" type="text" bind:value={telefono} required></p>
 		<p>Email:<input id="email" type="email" bind:value={email} required></p>
 		<p>Nick:<input id="nick" type="text" bind:value={nick} required></p>
@@ -93,7 +96,21 @@
 </main>
 
 <style>
-
+h2{
+	text-align: center;
+    color:rgb(12, 236, 243);
+    font-family: 'Gabriela-Regular.ttf';
+	font-size: 60px;
+	text-decoration-color: rgb(2, 29, 80);
+	margin-bottom: 10%;
+	letter-spacing: 0;
+	text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
+}
+button {
+	float: left;
+	margin-top: 10%;
+	margin-left: 5%;
+}
 div{
 	font-family: 'Ruluko-Regular.ttf';
 	color: rgb(6, 12, 106);
@@ -101,12 +118,21 @@ div{
 	font-style: oblique;
 	text-align: right;
 	float: left;
+	font-weight: 900;
 }
 input{
     font-family: 'Ruluko-Regular.ttf';
 	margin-left: 10px;
 	color: rgb(2, 6, 65);
 	font-size: 30px;
-	background-color: rgb(86, 169, 169);;
+	background-color: rgb(5, 250, 164);
+	border-radius: 50px;
+	text-align: center;
+}
+button#regresar{
+	margin-bottom: 10%;
+    float:right;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 </style>

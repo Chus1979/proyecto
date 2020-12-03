@@ -1,13 +1,12 @@
 <script>
-
     /*Pag intermedia para acceder al mercado o a ampliar la BD de productos*/
-   // import AppaltaUsuario from './Mercado.svelte';
-   // import Login from './Login.svelte'
     import Avatar from "./Avatar.svelte";
 
     export var seccion;
     export var userId;
-    export var nick;
+    //export var nick;
+
+    //$:nick;
 
     async function mercado () {
         seccion = "mercado";       
@@ -19,15 +18,15 @@
         seccion = "inicio";
         userId = null;
     }
-    async function avatar(){
-        nick=userId.nick;
+    /*async function avatar(){
         seccion="nick";
-    };
+        //nick = userId.nick;
+    };*/
 </script>
 
 <main>
-        <div class="avatar">
-            <Avatar bind:nick={nick} on:click={avatar}/>
+        <div>
+            <Avatar bind:nick={userId.nick}/>
             <p class="p">{userId.nick}</p>
         </div>
         <div class="botonentrada">
@@ -38,6 +37,7 @@
 </main>
 
 <style>
+
 .p{
     font-size: 80px;
     color:rgb(94, 255, 94);
@@ -49,12 +49,12 @@ div.botonentrada{
     margin-left: -400px;
 }
 #inicio{
-    float: left;
+    margin-left: 50%;
 }
 button#mercado{
-    margin-left:200px;
+    margin-left:60%;
 }
 button#altaproduc{
-   margin-left: 300px;
+   margin-left: 65%;
 }
 </style>

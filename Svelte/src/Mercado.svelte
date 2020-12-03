@@ -9,7 +9,7 @@
     export  var userId;
     export var seccion;
     export var carrito;
-    export var nick;
+   // export var nick;
     var listadoProduc = [];
     
     async function getlistadoProduc(){
@@ -21,17 +21,16 @@
     async function regresar(){
         seccion = "entrada";
     };
-    async function avatar(){
-     seccion="nick";
- };
 </script>
 
 <main>
     <div>
-        <Avatar bind:nick={nick} on:click={avatar}/>
+        <Avatar bind:nick={userId.nick}/>
         <p class="p">{userId.nick}</p>
     </div>
     <button id="regresar" on:click={regresar}></button>
+    <p class = "te">Seleccione el producto y dele a comprar para que se lo añada al carrito</p>
+    <img src="/iconos/FechaAzul3D.png" alt="flecha">
     <div class="todo">
        <AppProductos bind:carrito bind:seccion={seccion} bind:userId={userId}/>
     </div>
@@ -44,5 +43,26 @@
     color:rgb(9, 240, 9);
     text-align: center;
     text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
+}
+button#regresar{
+	float:left;
+}
+p{
+    font-family:'Ruluko-Regular.ttf';
+    text-align: center;
+    color:rgb(12, 11, 53);
+    font-size: 40px;
+    margin-bottom: 0px;
+}
+.te{
+    margin-left: 5%;
+    margin-bottom:2%;
+}
+img{
+    width: 200px;
+    height: 200px;
+    margin-top:-10%;
+    margin-right:-5%;
+    float:right; 
 }
 </style>

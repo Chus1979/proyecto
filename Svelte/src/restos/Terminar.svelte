@@ -3,10 +3,10 @@
 
     export var seccion;
     export var userId;
-   // export var nick;
-    var direccion;
+    export var nick;
 
-$:seccion = "terminar";
+$:seccion = "confirmar";
+$:nick = userId.nick;
 
 async function empezar(){
         userId = null;
@@ -15,9 +15,9 @@ async function empezar(){
 async function mandarAviso(){
         seccion = "mandarAviso";
 };
-async function guardar(){
-       var direccion = userId.direccion;
-       return direccion;
+async function avatar(){
+    nick = userId.nick;
+    seccion = "nick";
 };
 /*
 if(userId=true){
@@ -33,17 +33,16 @@ if(userId=true){
 
 <main>
     <div>
-        <Avatar bind:nick={userId.nick}/>
+        <Avatar bind:nick={nick} on:click={avatar}/>
         <p class="p">{userId.nick}</p>
     </div>
     <h2>Termina de rellenar este formulario.-</h2>
     <div class="datos">
         <p class="nomb">Nombre:{userId.nombre}</p>
-        <img src="/iconos/telefono_antiguo.jpeg" alt="telf"><p class="telefono">Teléfono:{userId.telefono}</p>
-        <img src="/iconos/Correo_electrónico.png" alt="email"><p class="email">Email:{userId.email}</p>
-        <img src="/iconos/sobre_carta.png" alt="sobre"><textarea class="direccion" placeholder="Escribe aquí tu dirección de envio" required>Dirección:</textarea>
+        <p class="telefono">Teléfono:{userId.telefono}</p>
+        <p class="email">Email:{userId.email}</p>
+        <textarea class="direccion" placeholder="Escribe aquí tu dirección de envio" required>Dirección:</textarea>
     </div>
-    <button id="guardar"on:click={guardar}>Guardar Dirección de envio</button>
     <button id="mandarAviso" on:click={mandarAviso}>Terminar</button>
     <button id="empezar" on:click={empezar}>Inicio</button>
 </main>
@@ -62,6 +61,9 @@ div{
     float: right;
  }
 textarea { 
+    width: 100%;
+    height: 200px;
+    border-radius:0%;
     text-align: center;
     font-size: 50px;
     color:rgb(4, 60, 1);
@@ -70,26 +72,7 @@ textarea {
 }
 button#mandarAviso {
 	float: right;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-right: 5%;
-    margin-left: 5%;
-}
-#empezar{
-    float:right;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-right: 5%;
-    margin-left: 5%;
-}
-#guardar{
-    float:right;
-    display:block;  
-    border-radius: 100%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-right: 5%;
-    margin-left: 5%;
+	margin-left: 60%;
 }
 h2{
 	text-align: center;
@@ -105,18 +88,12 @@ h2{
     float: left;
     font-family: 'Ruluko-Regular.ttf';
 }
-img{
-    width: 200px;
-    height: 200px;
-    float:left;
+p{
+    text-align: left;
+    font-family: 'Ruluko-Regular.ttf';
 }
-.nomb{
-    margin-bottom: 10%;
-}
-.telefono{
-    margin-bottom: 10%;
-}
-.email{
-    margin-bottom: 10%;
-}
+.telefono{background-image: url'(../img/telefono_antiguo.jpeg)'; widows: 30%; height: 30%;}
+.email{background-image: url'(../img/Correo_electrónico.png)';widows: 30%; height: 30%;}
+.direccion{background-image: url'(../img/sobre_carta.png)';widows: 30%; height: 30%;}
+
 </style>

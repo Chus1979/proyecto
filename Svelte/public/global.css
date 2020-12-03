@@ -6,8 +6,23 @@
     font-family: 'Ruluko-Regular.ttf';
     src:url('../Ruluko-Regular.ttf')
 }
-body.fondo{
-	background-color:rgba(113, 113, 240, 0.727)
+
+@font-face{
+    font-family: 'Artifika-Regular.ttf';
+	src: url('./Artifika-Regular.ttf');
+}
+
+@font-face{
+    font-family: 'Gabriela-Regular.ttf';
+	src: url('../Gabriela-Regular.ttf');
+}
+
+@font-face{
+    font-family: "ZCOOLXiaoWei-Regular.ttf";
+    src: url("../ZCOOL_XiaoWei/ZCOOLXiaoWei-Regular.ttf");
+}  
+.fondo{
+    background-color:rgba(113, 113, 240, 0.727);
 }
 .fondo:before{
 	content:'';
@@ -17,61 +32,8 @@ body.fondo{
 	left: 0;
 	right: 0;
 	opacity:0.2;
-	z-index: -1;
-}
-input{
-	font-family: 'Quicksand-Medium.ttf';
-	font-size: 15px;
-	padding: 10px;
-	margin: 0 0 0.5em 0;
-	border-radius: 50px;
-	color:rgb(48, 2, 2);
-}
-input:disabled {
-	color:darkolivegreen;
-}
-button:focus {
-	border-color: greenyellow;
-}
-@font-face{
-    font-family: 'Artifika-Regular.ttf';
-	src: url('./Artifika-Regular.ttf');
-}
-h1{
-	font-family: 'Artifika-Regular.ttf';
-    text-align: center;
-    color: greenyellow;
-	font-size: 150px;
-    text-decoration: rgb(62, 107, 156);
-	position: static;
-	text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
-}
-@font-face{
-    font-family: 'Gabriela-Regular.ttf';
-	src: url('../Gabriela-Regular.ttf');
-}
-h2{
-	text-align: center;
-    color:rgb(12, 236, 243);
-    font-family: 'Gabriela-Regular.ttf';
-	font-size: 60px;
-	text-decoration-color: rgb(2, 29, 80);
-	margin-bottom: 150px;
-	letter-spacing: 0;
-	text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
-}
-h3{
-	text-align: center;
-	color:rgb(5, 250, 164);
-	text-shadow: 6px 6px 6px rgb(3, 250, 155);
-    font-family: 'Gabriela-Regular.ttf';
-    font-size: 50px;
-	text-underline-position: auto;
-	text-decoration-line: underline;
-  	text-decoration-style: solid;
-	text-decoration-color: rgb(3, 131, 250);
-	letter-spacing: 0;
-	text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
+    z-index: -1;
+    margin-bottom:0px;
 }
 button {
     text-align: center;
@@ -82,71 +44,18 @@ button {
     padding: 10px;
     font-size: 50px;
 	color: rgb(5, 4, 89);
-	float: left;
-	margin-left: 40%;
 }
 button:hover {
 	padding: 15px;
 	background: rgb(52, 52, 247);
 }
 button#regresar{
-    background-image:url('./img/arrow-go-back-fill.svg');
+    background-image:url('./iconos/arrow-go-back-fill.svg');
     padding: 50px;
     border-radius: 80%;
     background-repeat:no-repeat;
     height:70px;
     width:70px;
     background-position:center;
-	margin-left: 50%;
 	font-size: 50px;
-}
-@font-face{
-    font-family: "ZCOOLXiaoWei-Regular.ttf";
-    src: url("../ZCOOL_XiaoWei/ZCOOLXiaoWei-Regular.ttf");
-}  
-table.tablaMercado {
-    font-family: "ZCOOLXiaoWei-Regular.ttf";
-    background: rgba(11, 105, 118, 0.357);
-    width: auto;
-    height: auto;
-    text-align: center;
-	float:left;
-	position: static;
-} 
-thead{
-	font-family:'Gabriela-Regular.ttf';
-	font-size: 70px;
-	color:rgb(14, 14, 84);
-}
-td{
-    font-size: 35px;
-}
-
-div.carro{
-	margin-right: 0px;
-	z-index: +1;
-	position: relative;
-	float: right;
-
-}
-table.carro{
-    font-family: "ZCOOLXiaoWei-Regular.ttf";
-    background: rgba(89, 218, 132, 0.803);
-    border: 1px solid rgba(0, 68, 42, 0.522);
-    width: 100%;
-    height: 100%;
-	text-align: center;	
-}	
-thead{
-	font-family:'Gabriela-Regular.ttf';
-	font-size: 35px;
-	margin-top:25%;
-}
-tbody{
-    font-size: 25px;
-}
-td.total{
-    font-size: 35px;
-    color:darkblue;
-    border-top: 3px solid rgb(9, 17, 245);
 }

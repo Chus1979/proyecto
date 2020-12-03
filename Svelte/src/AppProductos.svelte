@@ -59,18 +59,46 @@
     </div>
 
 <style>
-
+table.tablaMercado {
+    font-family: "ZCOOLXiaoWei-Regular.ttf";
+    background: rgba(11, 105, 118, 0.357);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    float:left;
+    position: relative;
+} 
+thead{
+	font-family:'Gabriela-Regular.ttf';
+	font-size: 60px;
+	color:rgb(14, 14, 84);
+}
+td{
+    font-size: 35px;
+}
+input{
+	font-family: 'Quicksand-Medium.ttf';
+	font-size: 15px;
+	padding: 10px;
+	margin: 0 0 0.5em 0;
+	border-radius: 50px;
+	color:rgb(48, 2, 2);
+}
+input:disabled {
+	color:darkolivegreen;
+}
+button:focus {
+	border-color: greenyellow;
+}
+button {
+	float: left;
+}
 button#borrar{
-    font-size: 20px;
-    margin-right: 0px;
-    margin-left: 0px;
+    font-size: 40%;
 }
 button#carro{
-    font-size: 20px; 
-    margin-right: 0px;
-    margin-left: 0px;
+    font-size: 40%; 
 }
-
 input#cantidad{
 	font-family: 'ZCOOLXiaoWei-Regular.ttf';
 	font-size: 30px;
@@ -80,5 +108,8 @@ input#cantidad{
     background-color: rgb(1, 250, 84);
     width: 100px;
     margin-left: initial;
+}
+.carro{
+    display: flex;
 }
 </style>

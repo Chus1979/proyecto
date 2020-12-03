@@ -1,5 +1,5 @@
 <script>
-	import Avatar from './Avatar.svelte';
+	
     //import Appcarro from './Appcarro.svelte';
     
     export var userId;

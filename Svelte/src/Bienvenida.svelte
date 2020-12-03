@@ -16,15 +16,30 @@
 </main>
 
 <style>
-@font-face{
-    font-family: 'Ruluko-Regular.ttf';
-    src:url('../Ruluko-Regular.ttf')
-}
 
+h3{
+	text-align: center;
+	color:rgb(5, 250, 164);
+	text-shadow: 6px 6px 6px rgb(3, 250, 155);
+    font-family: 'Gabriela-Regular.ttf';
+    font-size: 50px;
+	text-underline-position: auto;
+	text-decoration-line: underline;
+  	text-decoration-style: solid;
+	text-decoration-color: rgb(3, 131, 250);
+	letter-spacing: 0;
+	text-shadow: -3px -3px 3px #0000DF, 3px -3px 3px #0000DF, -3px 3px 3px #0000DF, 3px 3px 3px #0000DF;
+}
+button {
+	float: left;
+    margin-left: 40%;
+    margin-top: 5%;
+}
 .introduccion{
     font-family:'Ruluko-Regular.ttf';
     text-align: center;
     color:rgb(12, 11, 53);
     font-size: 40px;
+    margin-bottom: 0px;
 }
 </style>
