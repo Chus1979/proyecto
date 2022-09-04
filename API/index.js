@@ -2,6 +2,9 @@ const express =  require('express');
 const app = express();
 // https://www.npmjs.com/package/express-session
 
+// Load .env environmet variables if not in production.
+if (process.env.NODE_ENV !== "production") require('dotenv').config()
+
 const multer  = require('multer');
 const appPort = 3000;
 const cors = require('cors');
@@ -15,7 +18,6 @@ const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
 const crypto = require ('crypto');
 //
-const mongoURL = 'mongodb://localhost:27017/cliente_proveedor';
 
 const {ClientRequest} = require('http');
 
@@ -47,7 +49,8 @@ var collection;
 //var collProv;
 var collProduc;
 async function conectadb () {
-	var conexionMongo = await MongoClient.connect(mongoURL);
+    // Connect to server defined in MONGO_URL environment variable.
+	var conexionMongo = await MongoClient.connect(process.env.MONGO_URL);
 	collection = await conexionMongo.db().collection('usuario');
 	//collProv = await client.db().collection('proveedores');
 	collProduc = await conexionMongo.db().collection('productos');
